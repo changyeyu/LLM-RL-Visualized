@@ -39,11 +39,11 @@
 
 
 ## 项目说明
-🎉 **原创 100+ 架构图**，涵盖 LLM、VLM 等大模型技术，训练算法（RL、RLHF、GRPO、DPO、SFT 与 CoT 蒸馏等）、效果优化与 RAG 等。  
-🎉 本项目最初基于中文书籍 **《大模型算法：强化学习、微调与对齐》** 中的部分架构图，并在此基础上不断新增。  
+🎉 **原创 100+ 架构图，重磅开源！大模型算法一览无余！** 涵盖 LLM、VLM 等大模型技术，训练算法（RL、RLHF、GRPO、DPO、SFT 与 CoT 蒸馏等）、效果优化与 RAG 等。  
+🎉 架构图的<strong>文字详解、更多架构图</strong> 详见：<a href="https://item.jd.com/15017130.html">《大模型算法：强化学习、微调与对齐》</a>
 🎉 本项目 **长期勘误、更新、追加**，欢迎点击右上角 ↗ 的 **Star ⭐** 关注！  
 🎉 鼓励开发者参与共建，PR 提交步骤详见：[欢迎共建](#欢迎共建)。
-点击图片可查看高清大图，或浏览仓库目录中的 `.svg` 格式矢量图（支持无限缩放）
+🎉 点击图片可查看高清大图，或浏览仓库目录中的 `.svg` 格式矢量图（支持无限缩放）
 
 
 ### 大模型算法总体架构（以LLM、VLM为主）
@@ -721,5 +721,5 @@ Beijing: Publishing House of Electronics Industry, 2025. https://github.com/chan
 ---
 
 <div align="center">
-本项目<strong>持续更新</strong>...   欢迎点击右上角↗的⭐<strong>Star</strong> 以关注！
+以上架构图的<strong>文字详解、更多架构图</strong> 👉详见：<a href="https://item.jd.com/15017130.html">《大模型算法：强化学习、微调与对齐》</a>
 </div>
