@@ -54,6 +54,8 @@
 <img src="src/assets/大模型算法-内容架构-zh.png" alt="大模型算法-内容架构">
 
 ### 【LLM基础】LLM结构全视图
+- 此图累计耗费我几十个小时，呕心沥血之作...... 开源给大家送福利了
+- LLM主要有Decoder-Only（仅解码器）或MoE（Mixture of Experts, 专家混合模型）两种形式，两者在整体架构上较为相似，主要区别为MoE在FFN（前馈网络）部分引入了多个专家网络。
 [![【LLM基础】LLM结构全视图](images_chinese/source_svg/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E3%80%91LLM%E7%BB%93%E6%9E%84%E5%85%A8%E8%A7%86%E5%9B%BE.svg)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/source_svg/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E3%80%91LLM%E7%BB%93%E6%9E%84%E5%85%A8%E8%A7%86%E5%9B%BE.svg)
 
 ### 【LLM基础】LLM（Large Language Model）结构
