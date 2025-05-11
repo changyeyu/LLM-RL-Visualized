@@ -179,6 +179,8 @@
 
 <br>
 
+---
+
 ### <a name="header-1"></a>大模型算法总体架构（以LLM、VLM为主）
 <img src="src/assets/大模型算法-内容架构-zh.png" alt="大模型算法-内容架构">
 
