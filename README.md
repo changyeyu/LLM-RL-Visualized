@@ -172,10 +172,12 @@
 - [【LLM基础拓展】AUC、PR、F1、Precision、Recall](#header-119)
 - [【LLM基础拓展】RoPE位置编码](#header-120)
 - [【LLM基础拓展】RoPE对各序列位置、各维度的作用](#header-121)
-- [书籍目录](#header-122)
-- [参考文献](#header-123)
-- [📌 用于参考文献](#header-124)
-- [📌 BibTeX 引用格式](#header-125)
+- [所有架构图的 文字详解✍️、更多架构图🖼️](#header-122)
+- [书籍参考文献](#header-123)
+- [用于参考文献（引用格式）](#header-124)
+- [BibTeX（引用格式）](#header-125)
+
+<br>
 
 ### <a name="header-1"></a>大模型算法总体架构（以LLM、VLM为主）
 <img src="src/assets/大模型算法-内容架构-zh.png" alt="大模型算法-内容架构">
@@ -549,8 +551,8 @@
 
 ---
 
-## 📘《大模型算法：强化学习、微调与对齐》——书籍简介
-### <a name="header-122"></a>书籍目录
+## <a name="header-122"></a>本仓图片的文字详解、更多图见：《大模型算法：强化学习、微调与对齐》
+### 书籍目录
 #### 
 <details>
 <summary>折叠 / 展开目录</summary>
