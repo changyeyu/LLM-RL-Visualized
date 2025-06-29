@@ -52,7 +52,8 @@
 
 ## 内容索引
 - [大模型算法总体架构（以LLM、VLM为主）](#header-1)
-- [【LLM基础】LLM结构全视图](#header-2)
+- [强化学习架构总图————全网最大！](#header-126)
+- [【LLM基础】LLM结构总图————全网最大！](#header-2)
 - [【LLM基础】LLM（Large Language Model）结构](#header-3)
 - [【LLM基础】LLM生成与解码（Decoding）过程](#header-4)
 - [【LLM基础】LLM输入层](#header-5)
@@ -184,8 +185,13 @@
 ### <a name="header-1"></a>大模型算法总体架构（以LLM、VLM为主）
 <img src="src/assets/大模型算法-内容架构-zh.png" alt="大模型算法-内容架构">
 
-### <a name="header-2"></a>【LLM基础】LLM结构全视图
-- 此图累计耗费我几十个小时，呕心沥血之作...... 开源给大家送福利了
+### <a name="header-126"></a> 强化学习 架构总图————全网最大！
+- 我几十个小时、呕心沥血之作，点击本仓库右上角 ↗ 的 **Star ⭐** ，就是对我最大的鼓励啦！
+- 下图仅为预览图，高清图见： <a href="https://github.com/changyeyu/LLM-RL-Visualized/blob/master/rl-algo-map.pdf"> rl-algo-map.pdf </a>
+[![强化学习架构总图](images_chinese/rl-algo-map-preview.png)](https://github.com/changyeyu/LLM-RL-Visualized/blob/master/rl-algo-map.pdf)
+
+### <a name="header-2"></a>【LLM基础】LLM结构总图————全网最大！
+- 我几十个小时、呕心沥血之作，点击本仓库右上角 ↗ 的 **Star ⭐** ，就是对我最大的鼓励啦！
 - LLM主要有Decoder-Only（仅解码器）或MoE（Mixture of Experts, 专家混合模型）两种形式，两者在整体架构上较为相似，主要区别为MoE在FFN（前馈网络）部分引入了多个专家网络。
 [![【LLM基础】LLM结构全视图](images_chinese/source_svg/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E3%80%91LLM%E7%BB%93%E6%9E%84%E5%85%A8%E8%A7%86%E5%9B%BE.svg)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/source_svg/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E3%80%91LLM%E7%BB%93%E6%9E%84%E5%85%A8%E8%A7%86%E5%9B%BE.svg)
 
@@ -779,7 +785,7 @@
 
 
 ## 交流讨论
-- 公众号 / 小红书 / 知乎 关注：<span style="color: black; font-weight: bold;">叶子哥AI</span> 
+- 公众号 / 知乎 / B站 ，关注：<span style="color: black; font-weight: bold;">叶子哥AI</span> 
 <img src="src/assets/account.png" alt="Book Cover" width="475">
 
 
@@ -857,5 +863,7 @@ Beijing: Publishing House of Electronics Industry, 2025. https://github.com/chan
 ---
 
 <div align="center">
-以上架构图的<strong>文字详解、更多架构图</strong> 👉详见：<a href="https://item.jd.com/15017130.html">《大模型算法：强化学习、微调与对齐》</a>
+以上架构图的<strong>文字详解、更多架构图</strong> 详见：<a href="https://item.jd.com/15017130.html">《大模型算法：强化学习、微调与对齐》</a>
+
+欢迎点击右上角 ↗ 的 **Star ⭐** 关注！  
 </div>
