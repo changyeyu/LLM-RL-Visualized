@@ -770,8 +770,12 @@
 
 
 ## 交流讨论
-- 知乎 / 公众号 / B站 ，关注：**叶子哥AI**，可以私信交流。
-<img src="src/assets/account.png" alt="Book Cover" width="475">
+- 本人的 B站 / 知乎 / 公众号 ，均可私信交流。
+- **B 站**（叶子哥AI）：[https://space.bilibili.com/3546693609982728](https://space.bilibili.com/3546693609982728)  
+- **知乎**（叶子哥AI）：[https://www.zhihu.com/people/yezibro](https://www.zhihu.com/people/yezibro)  
+- **公众号**：叶子哥AI  
+
+
 
 
 ## 欢迎共建
