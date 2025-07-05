@@ -1,15 +1,10 @@
-<!-- ========== Banner（可选） ========== -->
-<!-- 
-  如果你想要背景色、圆角、阴影这些效果，最佳做法是把 Header 区域做成一张图（banner.png），
-  然后像下面这样插入：
--->
-
+<!-- ========== Banner ========== -->
 <p align="center">
   <img src="src/assets/banner/幻灯片2.SVG" alt="图解大模型算法：LLM / RL / VLM 核心技术图谱" />
 </p>
 
 
-<!-- ========== 按钮区 ========== -->
+<!-- ========== 按钮 ========== -->
 <p align="center">
   <a href="./src/README_EN.md">
     <img
@@ -186,7 +181,7 @@
 <img src="src/assets/大模型算法-内容架构-zh.png" alt="大模型算法-内容架构">
 
 ### <a name="header-126"></a> 强化学习算法图谱 (rl-algo-map).pdf————全网最大！
-- 我几十个小时、呕心沥血之作，点击本仓库右上角 ↗ 的 **Star ⭐** ，就是对我最大的鼓励啦！
+- 我历时数天、呕心沥血之作，点击本仓库右上角 ↗ 的 **Star ⭐** ，就是对我最大的鼓励啦！
 - 下图仅为预览图，高清图见： <a href="https://github.com/changyeyu/LLM-RL-Visualized/blob/master/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E5%9B%BE%E8%B0%B1%20(rl-algo-map).pdf"> 强化学习算法图谱 (rl-algo-map).pdf </a>
 [![强化学习算法图谱 (rl-algo-map).pdf](images_chinese/rl-algo-map-preview.png)](https://github.com/changyeyu/LLM-RL-Visualized/blob/master/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E5%9B%BE%E8%B0%B1%20(rl-algo-map).pdf)
 
@@ -785,7 +780,7 @@
 
 
 ## 交流讨论
-- 公众号 / 知乎 / B站 ，关注：<span style="color: black; font-weight: bold;">叶子哥AI</span> 
+- 知乎 / 公众号 / B站 ，关注：**叶子哥AI**，可以私信交流。
 <img src="src/assets/account.png" alt="Book Cover" width="475">
 
 
@@ -863,7 +858,7 @@ Beijing: Publishing House of Electronics Industry, 2025. https://github.com/chan
 ---
 
 <div align="center">
-以上架构图的<strong>文字详解、更多架构图</strong> 详见：<a href="https://item.jd.com/15017130.html">《大模型算法：强化学习、微调与对齐》</a>
+本仓库图片的<strong>文字详解、更多架构图</strong> 详见：<a href="https://book.douban.com/subject/37331056/">《大模型算法：强化学习、微调与对齐》</a>
 
-欢迎点击右上角 ↗ 的 **Star ⭐** 关注！  
+欢迎点击右上角 ↗ 的 **Star ⭐** 关注！   
 </div>
