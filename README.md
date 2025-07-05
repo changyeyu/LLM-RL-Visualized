@@ -1,10 +1,7 @@
-<!-- ========== Banner ========== -->
 <p align="center">
   <img src="src/assets/banner/幻灯片2.SVG" alt="图解大模型算法：LLM / RL / VLM 核心技术图谱" />
 </p>
 
-
-<!-- ========== 按钮 ========== -->
 <p align="center">
   <a href="./src/README_EN.md">
     <img
@@ -26,12 +23,7 @@
   </a>    
 </p>
 
-
-
 ---
-<!-- ========== 文案列表 ========== -->
-
-
 
 ## 项目说明
 🎉 **原创 100+ 架构图，重磅开源！大模型算法一览无余！** 涵盖 LLM、VLM 等大模型技术，训练算法（RL、RLHF、GRPO、DPO、SFT 与 CoT 蒸馏等）、效果优化与 RAG 等。  
@@ -39,8 +31,6 @@
 🎉 架构图的<strong>文字详解、更多架构图</strong> 详见：<a href="https://item.jd.com/15017130.html">《大模型算法：强化学习、微调与对齐》</a>
 
 🎉 本项目 **长期勘误、更新、追加**，欢迎点击右上角 ↗ 的 **Star ⭐** 关注！  
-
-🎉 鼓励开发者参与共建，PR 提交步骤详见：[欢迎共建](#欢迎共建)。
 
 🎉 点击图片可查看高清大图，或浏览仓库目录中的 `.svg` 格式矢量图（支持无限缩放）
 
@@ -769,9 +759,9 @@
 <br>
 <img src="src/assets/Book_Cover.png" alt="Book Cover" width="750">
 
-
-
 <br>
+
+
 
 ### <a name="header-123"></a>参考文献
 - 《大模型算法：强化学习、微调与对齐》原书的参考文献详见： [参考文献](./src/references.md) 
@@ -784,12 +774,10 @@
 <img src="src/assets/account.png" alt="Book Cover" width="475">
 
 
-
 ## 欢迎共建
-- 欢迎为本项目提交原理图、文档、纠错与修正或其他任何改进！你可以在图中署名（使用昵称或姓名），你的 GitHub 账号也将展示在本仓库的 Contributors 中，让更多人了解你和你的工作。绘图模板示例：[images-template.pptx](./src/assets/images-template.pptx) 
+- 欢迎为本项目提交原理图、文档、纠错与修正或其他任何改进！绘图模板示例：[images-template.pptx](./src/assets/images-template.pptx) 
 - 提交步骤：（1）Fork： 点击页面上的"Fork" 按钮，在你的主页创建独立的子仓库 → （2）Clone：将你Fork后的子仓库Clone到本地 → （3）本地新建分支 → （4）修改提交 → （5）Push到远程子仓库 → （6）提交PR：回到Github页面，在你的子仓库界面点击“Compare & pull request”发起PR，等待维护者审核&合并到母仓库。
 - 绘图配色以这些颜色为主： <span style="display:inline-block;width:12px;height:12px;background-color:#71CCF5;border-radius:2px;margin-right:8px;"></span>浅蓝（编码`#71CCF5`） ;   <span style="display:inline-block;width:12px;height:12px;background-color:#FFE699;border-radius:2px;margin-right:8px;"></span>浅黄（编码`#FFE699`）; <span style="display:inline-block;width:12px;height:12px;background-color:#C0BFDE;border-radius:2px;margin-right:8px;"></span>蓝紫（编码`#C0BFDE`） ; <span style="display:inline-block;width:12px;height:12px;background-color:#F0ADB7;border-radius:2px;margin-right:8px;"></span> 粉红（编码`#F0ADB7`）。
-
 
 
 ## 使用条款
@@ -858,7 +846,7 @@ Beijing: Publishing House of Electronics Industry, 2025. https://github.com/chan
 ---
 
 <div align="center">
-本仓库图片的<strong>文字详解、更多架构图</strong> 详见：<a href="https://book.douban.com/subject/37331056/">《大模型算法：强化学习、微调与对齐》</a>
+本仓库图片的<strong>文字详解、更多图</strong> 详见：<a href="https://book.douban.com/subject/37331056/">《大模型算法：强化学习、微调与对齐》</a>
 
-欢迎点击右上角 ↗ 的 **Star ⭐** 关注！   
+欢迎点击仓库顶部的 **Star ⭐**，   谢谢鼓励~
 </div>
