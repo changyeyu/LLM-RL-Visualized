@@ -584,16 +584,8 @@ def compute_gae(rewards, values, gamma=0.99, lambda_=0.95):
 ### <a name="header-70"></a>【策略优化架构算法及其衍生】PPO-Clip
 - 通常所说的PPO即指PPO-Clip（近端策略优化-剪裁）。
 - PO-Clip的**目标**是最大化未来回报的期望，具体来说，通过最大化目标函数J(θ)来优化策略，PPO-Clip的目标函数如下图。
-- clip与min操作的**意义**：意义如下图的曲线图，为清晰起见，对式中的部分项用两种缩放系数进行替换，可以分别称为“线性”缩放系数和“剪裁”缩放**系数**。分类为6种情况，进行总结。
+- clip与min操作的**意义**：意义如下图的曲线图，为清晰起见，对式中的部分项用两种缩放系数进行替换，可以分别称为“线性”缩放系数和“剪裁”缩放**系数**。
 
-| 优势 A_t^{π_old}                                    | r_t(θ) = π_θ(a_t|s_t) / π_{θ_old}(a_t|s_t) | η_t · A_t^{π_old}                                       | 是否被截断 | 意义解释                                                                 |
-| -------------------------------------------------- | ---------------------------------------- | ------------------------------------------------------- | ---------- | ------------------------------------------------------------------------ |
-| A_t^{π_old} > 0 （动作 a_t 较好，应增加 a_t 的概率） | (0, 1−ε)                                 | π_θ(a_t|s_t)/π_{θ_old}(a_t|s_t) · A_t^{π_old}            | -          | 梯度更新后增加 a_t 的概率                                                 |
-|                                                    | [1−ε, 1+ε]                               | π_θ(a_t|s_t)/π_{θ_old}(a_t|s_t) · A_t^{π_old}            | -          | 梯度更新后增加 a_t 的概率                                                 |
-|                                                    | (1+ε, +∞)                                | (1+ε) · A_t^{π_old}                                      | 截断       | 当前策略执行 a_t 的概率已经比较高了（r_t(θ) 很大），不可太贪心，截断          |
-| A_t^{π_old} < 0 （动作 a_t 较差，应降低 a_t 的概率） | (0, 1−ε)                                 | (1−ε) · A_t^{π_old}                                      | 截断       | 当前策略执行 a_t 的概率已经比较低了（r_t(θ) 很小），不可太贪心，截断          |
-|                                                    | [1−ε, 1+ε]                               | π_θ(a_t|s_t)/π_{θ_old}(a_t|s_t) · A_t^{π_old}            | -          | 梯度更新后降低 a_t 的概率                                                 |
-|                                                    | (1+ε, +∞)                                | π_θ(a_t|s_t)/π_{θ_old}(a_t|s_t) · A_t^{π_old}            | -          | 梯度更新后降低 a_t 的概率                                                 |
 
 [![【策略优化架构算法及其衍生】PPO-Clip](images_chinese/png_small/%E3%80%90%E7%AD%96%E7%95%A5%E4%BC%98%E5%8C%96%E6%9E%B6%E6%9E%84%E7%AE%97%E6%B3%95%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E3%80%91PPO-Clip.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90%E7%AD%96%E7%95%A5%E4%BC%98%E5%8C%96%E6%9E%B6%E6%9E%84%E7%AE%97%E6%B3%95%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E3%80%91PPO-Clip.png)
 
@@ -662,25 +654,6 @@ for iteration in range(num_iterations):  # 进行num_iterations个训练迭代
 - GRPO的**核心思想**在于利用群体相对优势估计来取代传统的价值模型。具体来说，GRPO通过采样一组候选输出，并将这些输出的平均奖励作为基线，来计算各个输出的优势值。这种方法不仅避免了对额外价值模型的依赖，同时也充分发挥了奖励模型的比较特性，从而提高了训练的效率和稳定性。
 [![【策略优化架构算法及其衍生】GRPO&PPO](images_chinese/png_small/%E3%80%90%E7%AD%96%E7%95%A5%E4%BC%98%E5%8C%96%E6%9E%B6%E6%9E%84%E7%AE%97%E6%B3%95%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E3%80%91GRPO%26PPO.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90%E7%AD%96%E7%95%A5%E4%BC%98%E5%8C%96%E6%9E%B6%E6%9E%84%E7%AE%97%E6%B3%95%E5%8F%8A%E5%85%B6%E8%A1%8D%E7%94%9F%E3%80%91GRPO%26PPO.png)
 
-$$
-J^{\mathrm{GRPO}}(\theta) \;=\;
-\mathbb{E}\!\left[\frac{1}{G}\sum_{i=1}^G \min\Bigl(
-\underbrace{\frac{\pi_\theta(o_i\mid q)}{\pi_{\theta_{\mathrm{old}}}(o_i\mid q)}\,A_i}_{r_t(\theta)\cdot A_i},
-\;\,
-\underbrace{\mathrm{clip}\!\bigl(\tfrac{\pi_\theta(o_i\mid q)}{\pi_{\theta_{\mathrm{old}}}(o_i\mid q)},\,1-\varepsilon,\,1+\varepsilon\bigr)\,A_i}_{\text{剪裁后优势}}
-\Bigr)
-\;-\;\beta\;\mathrm{KL}\bigl(\pi_\theta\big\|\pi_{\mathrm{ref}}\bigr)
-\right]
-$$
-
-其中：
-1. \(G\) 是 GRPO 的超参数，表示对于每个问题 \(q\)，要生成的输出 \(o\) 的数量。  
-2. \(\pi_\theta(o_i\mid q)\) 表示在新策略（模型）下，给定输入 \(q\) 时输出为 \(o_i\) 的概率。  
-3. \(\pi_{\theta_{\mathrm{old}}}(o_i\mid q)\) 表示在旧策略（模型）下，给定输入 \(q\) 时输出为 \(o_i\) 的概率。  
-4. \(A_i\) 为优势估计值，表示在输入为 \(q\) 时，输出 \(o_i\) 相对于策略平均水平的优势。  
-5. \(\varepsilon\) 为剪裁阈值参数，通常设为 0.1 到 0.3 之间，用于控制剪裁强度。  
-6. \(\mathrm{clip}(x,1-\varepsilon,1+\varepsilon)\) 为截断函数，将 \(x\) 限制在区间 \([1-\varepsilon,1+\varepsilon]\) 之内。  
-7. \(\beta\) 是 GRPO 的超参数，代表 KL 散度的惩罚系数，用于调控新策略 \(\pi_\theta\) 与参考策略 \(\pi_{\mathrm{ref}}\) 输出分布的差异。  
 
 
 ### <a name="header-73"></a>【策略优化架构算法及其衍生】确定性策略vs随机性策略（Deterministic policy vs. Stochastic policy）
