@@ -181,45 +181,80 @@
 [![【LLM基础】LLM结构全视图](images_chinese/source_svg/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E3%80%91LLM%E7%BB%93%E6%9E%84%E5%85%A8%E8%A7%86%E5%9B%BE.svg)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/source_svg/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E3%80%91LLM%E7%BB%93%E6%9E%84%E5%85%A8%E8%A7%86%E5%9B%BE.svg)
 
 ### <a name="header-3"></a>【LLM基础】LLM（Large Language Model）结构
+- LLM主要有Decoder-Only（仅解码器）或MoE（Mixture of Experts, 专家混合模型）两种形式，两者在整体架构上较为**相似**，主要区别为MoE在FFN（前馈网络）部分引入了多个专家网络。
+- 一个典型的LLM结构，可分为**三部分**——输入层、多层Decoder堆叠结构和输出层（包括语言模型头与解码模块）
+
 [![【LLM基础】LLM结构](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E3%80%91LLM%E7%BB%93%E6%9E%84.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E3%80%91LLM%E7%BB%93%E6%9E%84.png)
 
 ### <a name="header-4"></a>【LLM基础】LLM生成与解码（Decoding）过程
+- LLM的输出层负责根据概率分布，应用**解码算法**确定最终预测的下一个/N个词元。
+- 根据概率分布，应用解码策略（例如随机采样或选择最大概率）确定最终预测的**下一个**词元。例如，在贪婪搜索解码策略下，选择概率最高的词元“我”作为预测结果。
+- 每一个token（词元）的生成都需要**重新走一遍**所有层Transformer结构。
+- 这里只展示了每次预测一个词元的方案，也有一次性预测多个词元的方案，详见《大模型算法：强化学习、微调与对齐》第四章。
 [![【LLM基础】LLM生成与解码过程](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E3%80%91LLM%E7%94%9F%E6%88%90%E4%B8%8E%E8%A7%A3%E7%A0%81%E8%BF%87%E7%A8%8B.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E3%80%91LLM%E7%94%9F%E6%88%90%E4%B8%8E%E8%A7%A3%E7%A0%81%E8%BF%87%E7%A8%8B.png)
 
 ### <a name="header-5"></a>【LLM基础】LLM输入层
+- LLM的输入层将输入**文本**转换为多维**数值矩阵**（Tensor，张量），以便送往模型主体结构进行计算。
 [![【LLM基础】LLM输入层](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E3%80%91LLM%E8%BE%93%E5%85%A5%E5%B1%82.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E3%80%91LLM%E8%BE%93%E5%85%A5%E5%B1%82.png)
 
 ### <a name="header-6"></a>【LLM基础】LLM输出层
+LLM的输出层负责根据隐藏状态（多维数值矩阵）预测下一个词元（文本）。处理流程如图所示：
+- （1）**输入隐藏状态**：Decoder最后一层的隐藏状态（Hidden States）作为LLM输出层的输入。如图中所示维度为3×896的数值矩阵，包含了前缀序列的所有语义信息。
+- （2）**语言模型头**（LM Head）：通常是一个全连接层，用于将隐藏状态转换为Logits（推理时只计算最后一个位置的Logits）。如图所示，Logits的形状为3×151936，对应于词表中每个词元的得分。
+- （3）**提取最后位置的Logits**：预测下一个词元仅依赖于前缀序列最后一个位置的Logits，因此需要从所有位置的Logits中提取最后一个位置的Logits。如图所示，提取得到一个151936维的向量 [2.0, 3.1, −1.7, ... , −1.7]，用于后续预测。
+- （4）**转换为概率分布**（Softmax）：通过Softmax函数将Logits转换为概率分布，得到词表中每个词元的概率。例如，生成的151936维概率向量为[0.01, 0.03, 0.001, ... , 0.001]，该向量内所有概率之和为1。概率值越大，表示该词元作为下一个词元的可能性越高。例如，“我”的概率为0.34。
+- （5）**解码（Decoding）**：根据概率分布，应用解码策略（例如随机采样或选择最大概率）确定最终预测的下一个词元。例如，在贪婪搜索解码策略下，选择概率最高的词元“我”作为预测结果。
 [![【LLM基础】LLM输出层](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E3%80%91LLM%E8%BE%93%E5%87%BA%E5%B1%82.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E3%80%91LLM%E8%BE%93%E5%87%BA%E5%B1%82.png)
 
 ### <a name="header-7"></a>【LLM基础】多模态模型结构（VLM、MLLM ...）
+多模态模型根据侧重不同，通常有以下称呼方法：
+- VLM（Vision-Language Model，视觉语言模型）
+- MLLM（Multimodal Large Language Model，多模态大语言模型）
+- VLA（Vision-Language-Action Model，视觉语言动作模型）
 [![【LLM基础】多模态模型结构](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E3%80%91%E5%A4%9A%E6%A8%A1%E6%80%81%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E3%80%91%E5%A4%9A%E6%A8%A1%E6%80%81%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84.png)
 
 ### <a name="header-8"></a>【LLM基础】LLM训练流程
+- 大模型的训练主要分为**两个阶段**——预训练（Pre-Training）和后训练（Post-Training）。在每个阶段，所使用的训练数据、训练范式（算法）、训练目标和超参数均有所不同。
+- **预训练**阶段包括初期训练（基于海量数据的短上下文训练）、中期训练（长文本/长上下文训练）以及退火（Annealing）训练等。此阶段以自监督学习为主，使用的数据量最大，同时也是最消耗算力的环节。
+- **后训练**阶段则包含多种可选的训练范式（算法），包括但不限于SFT（监督微调）、蒸馏、RSFT（拒绝采样微调）、RLHF（基于人类反馈的强化学习）、DPO（直接偏好优化），以及其他强化学习方法，例如GRPO（群体相对策略优化）、PPO（近端策略优化）等。其中，某些环节也可进行多轮迭代训练，例如多轮拒绝采样微调（Rejection Sampling Fine-Tuning, RSFT）。
 [![【LLM基础】LLM训练流程](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E3%80%91LLM%E8%AE%AD%E7%BB%83%E6%B5%81%E7%A8%8B.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E3%80%91LLM%E8%AE%AD%E7%BB%83%E6%B5%81%E7%A8%8B.png)
 
 ### <a name="header-9"></a>【SFT】微调（Fine-Tuning）技术分类
+- 可用于SFT的微调技术种类多样，如下图的分类图所示：前两种方法仅需基于预训练模型主体进行微调，开发成本较低；而并联低秩微调和Adapter Tuning则需要引入额外的新模块，实施过程相对复杂一些。这些方法均是针对模型参数进行微调，而基于Prompt的微调则另辟蹊径，从模型的输入着手进行微调。
 [![【SFT】微调技术分类](images_chinese/png_small/%E3%80%90SFT%E3%80%91%E5%BE%AE%E8%B0%83%E6%8A%80%E6%9C%AF%E5%88%86%E7%B1%BB.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90SFT%E3%80%91%E5%BE%AE%E8%B0%83%E6%8A%80%E6%9C%AF%E5%88%86%E7%B1%BB.png)
 
 ### <a name="header-10"></a>【SFT】LoRA（1 of 2）
+- LoRA（Low-Rank Adaptation, 低秩适配微调）由微软的研究团队于2021年发表。由于其高效的微调方式和良好的效果，在各类模型中得到广泛的应用。LoRA的**核心思想**在于——微调前后模型的参数差异∆W具有低秩性。
+- 一个矩阵具有**低秩性**，意味着它包含较多的冗余信息，将其分解为多个低维矩阵后，不会损失过多有用信息。例如，如图所示，一个1024×1024的矩阵可以被近似分解为一个1024×2矩阵与一个2×1024矩阵的乘积，从而将参数量约减少至原来的0.4%。
+
 [![【SFT】LoRA（1 of 2）](images_chinese/png_small/%E3%80%90SFT%E3%80%91LoRA%EF%BC%881%20of%202%EF%BC%89.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90SFT%E3%80%91LoRA%EF%BC%881%20of%202%EF%BC%89.png)
 
 ### <a name="header-11"></a>【SFT】LoRA（2 of 2）
+- A和B的**初始化**方式：
+- （1）矩阵A使用随机数初始化，如kaiming初始化；
+- （2）矩阵B使用全0初始化，或使用极小的随机数初始化。
+- **目的**在于——确保在训练初期，插入的LoRA模块不会对模型整体输出造成过大的扰动。
 [![【SFT】LoRA（2 of 2）](images_chinese/png_small/%E3%80%90SFT%E3%80%91LoRA%EF%BC%882%20of%202%EF%BC%89.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90SFT%E3%80%91LoRA%EF%BC%882%20of%202%EF%BC%89.png)
 
 ### <a name="header-12"></a>【SFT】Prefix-Tuning
+- Prefix-Tuning由斯坦福大学的研究团队提出，可以用于对语言模型进行轻量级微调。如图所示，该方法在输入的起始位置插入一段连续的、可训练的向量（Embedding），称为前缀（Prefix）。在处理后续的Token时，Transformer将这些向量视为 **虚拟Token**，并参与Attention计算。
+
 [![【SFT】Prefix-Tuning](images_chinese/png_small/%E3%80%90SFT%E3%80%91Prefix-Tuning.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90SFT%E3%80%91Prefix-Tuning.png)
 
 ### <a name="header-13"></a>【SFT】TokenID与词元的映射关系
+- 以SFT数据（经过ChatML格式预处理）为例，该数据经过Tokenizer处理后，被转换为33个Token，对应33个序列位置，如图所示。每个Token ID与相应的词元**一一对应**。
 [![【SFT】TokenID与词元的映射关系](images_chinese/png_small/%E3%80%90SFT%E3%80%91TokenID%E4%B8%8E%E8%AF%8D%E5%85%83%E7%9A%84%E6%98%A0%E5%B0%84%E5%85%B3%E7%B3%BB.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90SFT%E3%80%91TokenID%E4%B8%8E%E8%AF%8D%E5%85%83%E7%9A%84%E6%98%A0%E5%B0%84%E5%85%B3%E7%B3%BB.png)
 
 ### <a name="header-14"></a>【SFT】SFT的Loss（交叉熵）
+- 与预训练阶段类似，SFT的Loss也是基于交叉熵（CE，Cross Entropy）
 [![【SFT】SFT的Loss（交叉熵）](images_chinese/png_small/%E3%80%90SFT%E3%80%91SFT%E7%9A%84Loss%EF%BC%88%E4%BA%A4%E5%8F%89%E7%86%B5%EF%BC%89.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90SFT%E3%80%91SFT%E7%9A%84Loss%EF%BC%88%E4%BA%A4%E5%8F%89%E7%86%B5%EF%BC%89.png)
 
 ### <a name="header-15"></a>【SFT】指令数据的来源
+- **指令数据**（Instructions）是指为模型提供的一组引导性输入及期望输出的描述，通常包括问题（或任务提示）及其对应的答案，常用于对模型进行微调训练。
 [![【SFT】指令数据的来源](images_chinese/png_small/%E3%80%90SFT%E3%80%91%E6%8C%87%E4%BB%A4%E6%95%B0%E6%8D%AE%E7%9A%84%E6%9D%A5%E6%BA%90.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90SFT%E3%80%91%E6%8C%87%E4%BB%A4%E6%95%B0%E6%8D%AE%E7%9A%84%E6%9D%A5%E6%BA%90.png)
 
 ### <a name="header-16"></a>【SFT】多个数据的拼接（Packing）
+- （待续，持续补充注释中 ...）
 [![【SFT】多个数据的拼接（Packing）](images_chinese/png_small/%E3%80%90SFT%E3%80%91%E5%A4%9A%E4%B8%AA%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8B%BC%E6%8E%A5%EF%BC%88Packing%EF%BC%89.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90SFT%E3%80%91%E5%A4%9A%E4%B8%AA%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8B%BC%E6%8E%A5%EF%BC%88Packing%EF%BC%89.png)
 
 ### <a name="header-17"></a>【DPO】RLHF与DPO的训练架构对比
@@ -482,6 +517,7 @@
 [![【LLM基础拓展】大模型性能优化技术图谱](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%8A%80%E6%9C%AF%E5%9B%BE%E8%B0%B1.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%8A%80%E6%9C%AF%E5%9B%BE%E8%B0%B1.png)
 
 ### <a name="header-103"></a>【LLM基础拓展】ALiBi位置编码
+- RoPE已成主流，ALiBi逐渐被抛弃
 [![【LLM基础拓展】ALiBi位置编码](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91ALiBi%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91ALiBi%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81.png)
 
 ### <a name="header-104"></a>【LLM基础拓展】传统的知识蒸馏
@@ -515,29 +551,59 @@
 [![【LLM基础拓展】Pre-norm和Post-norm](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91Pre-norm%E5%92%8CPost-norm.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91Pre-norm%E5%92%8CPost-norm.png)
 
 ### <a name="header-114"></a>【LLM基础拓展】BatchNorm和LayerNorm
+- （待续，持续补充注释中 ...）
 [![【LLM基础拓展】BatchNorm和LayerNorm](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91BatchNorm%E5%92%8CLayerNorm.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91BatchNorm%E5%92%8CLayerNorm.png)
 
 ### <a name="header-115"></a>【LLM基础拓展】RMSNorm
+- RMSNorm（Root Mean Square Layer Normalization）是一种归一化方法，仅基于输入特征的均方根值（RMS）进行规范化，**不计算均值偏移**。  
+- 对每个样本的特征向量 \(x\)，先计算 \(\mathrm{RMS}(x)=\sqrt{\tfrac{1}{d}\sum_i x_i^2}\)，再做缩放：\(\hat{x}=x / \mathrm{RMS}(x)\times \gamma + \beta\)。  
+- 相较于 LayerNorm，它省略了减均值步骤，计算更高效且在多种 Transformer 架构中表现相近或更优。
 [![【LLM基础拓展】RMSNorm](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91RMSNorm.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91RMSNorm.png)
 
 ### <a name="header-116"></a>【LLM基础拓展】Prune（剪枝）
+- 剪枝是在训练或静态模型中去除**不重要**的权重（如小于阈值的连接）或整个神经元/通道，以减少模型规模和计算量。  
+- 典型流程包括：评估重要性 → 标记待剪参数 → 重训练（Fine-tuning）→ 验证性能。  
+- 有助于加速推理、降低内存占用，但需要小心避免过度剪枝导致性能大幅下降。
 [![【LLM基础拓展】Prune（剪枝）](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91Prune%EF%BC%88%E5%89%AA%E6%9E%9D%EF%BC%89.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91Prune%EF%BC%88%E5%89%AA%E6%9E%9D%EF%BC%89.png)
 
 ### <a name="header-117"></a>【LLM基础拓展】温度系数的作用
+- 在生成阶段，温度系数 \(T\) 通过放缩模型输出的 logits 分布来控制采样**多样性**。  
+- 当 \(T < 1\) 时，分布“尖锐”，模型更倾向于选择概率**最高**的 token，回答更固定。
+- 当 \(T > 1\) 时，分布“平坦”，采样结果更具**随机性**。  
+- 适当调整温度可以在准确性和创造性之间取得平衡——低温度提升确定性，高温度增强多样性。
 [![【LLM基础拓展】温度系数的作用](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91%E6%B8%A9%E5%BA%A6%E7%B3%BB%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91%E6%B8%A9%E5%BA%A6%E7%B3%BB%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8.png)
 
 ### <a name="header-118"></a>【LLM基础拓展】SwiGLU
+- 基本结构：SwiGLU 是 Gated Linear Unit（GLU）的变体，将输入向量通过**两条**线性映射，一路直接输出，一路经过 SiLU（Swish）激活后作为门控信号，两者逐元素相乘得到最终输出。
+- 激活**优势**：用 SiLU（Swish-1）替换原 GLU 中的 sigmoid，使门控更平滑、梯度更稳定，有助于加速训练收敛并提升下游任务表现。
 [![【LLM基础拓展】SwiGLU](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91SwiGLU.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91SwiGLU.png)
 
 ### <a name="header-119"></a>【LLM基础拓展】AUC、PR、F1、Precision、Recall
+被面试者、工程师经常混淆的算法常用指标，我画了一张图来对比总结，区别一目了然。
+- **AUC**（Area Under the ROC Curve）：衡量二分类模型在所有可能阈值下区分正负样本的能力，ROC（Receiver Operating Characteristic）曲线以假正例率（FPR）为横轴、真正例率（TPR）为纵轴，AUC 值越接近 1 越好；若 AUC≈0.5 则相当于随机猜测。
+- **PR Curve**（Precision–Recall Curve）：模型在不同召回率（Recall）下的精确率（Precision）变化趋势。可通过曲线下面积来综合评估模型对正类的检出能力。
+- **Precision（精确率）**：在所有被预测为正例的样本中，实际为正例的比例，衡量误报率高低，适用于误报成本高的场景，个人认为“查准率”的翻译更贴切。Precision = TP / (TP + FP)
+- **Recall （召回率）**：在所有真实为正例的样本中，被正确预测为正例的比例，衡量漏报率高低，适用于漏报成本高的场景，个人认为“查全率”的翻译更贴切。Recall = TP / (TP + FN)
+- **F1 Score** （F1 值）：Precision 与 Recall 的调和平均，当两者平衡时取得最高分。F1 Score = 2 * (Precision * Recall) / (Precision + Recall)
+- **Accuracy （准确率）**：在所有样本中，预测正确的比例，适用于类别分布较为均衡时的整体性能评估。Accuracy = (TP + TN) / (TP + TN + FP + FN)
+- **BLEU**（Bilingual Evaluation Understudy；机器翻译评估指标）：基于 n-gram 重叠率评估翻译结果与参考的相似程度。
+- **ROUGE**（Recall-Oriented Understudy for Gisting Evaluation；摘要评估指标）：生成摘要与参考在 n-gram、最长公共子序列或词重叠方面的匹配情况，关注召回性能。
+
 [![【LLM基础拓展】AUC、PR、F1、Precision、Recall](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91AUC%E3%80%81PR%E3%80%81F1%E3%80%81Precision%E3%80%81Recall.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91AUC%E3%80%81PR%E3%80%81F1%E3%80%81Precision%E3%80%81Recall.png)
 
+
 ### <a name="header-120"></a>【LLM基础拓展】RoPE位置编码
+- RoPE，Rotary Position Embedding，**旋转**位置编码，由苏剑林提出
+- 原理：对 Transformer 中的 Query 和 Key 隐藏向量应用旋转变换（基于正弦、余弦函数），将位置信息编码为向量的**相位差**。
+- 相对位置：旋转操作天然地保留了向量之间的相对角度差异，使模型能够捕捉**相对位置**信息而不依赖绝对位置索引。
+- 优点：无需额外参数、计算**开销低**；在长序列场景下相较于传统绝对位置编码具有更好的泛化和性能。
 [![【LLM基础拓展】RoPE位置编码](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91RoPE%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91RoPE%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81.png)
 
 ### <a name="header-121"></a>【LLM基础拓展】RoPE对各序列位置、各维度的作用
 - RoPE原理、Base与θ值、作用机制详见：[RoPE-theta-base.xlsx](./src/RoPE-theta-base.xlsx) 
-
+- 维度成对旋转：将嵌入向量按奇偶索引**两两分组**，对每一对子向量应用一个二维旋转矩阵，旋转角度随位置和维度频率共同决定。
+**高频**维度：对应下图左半区、角速度大的那些维度。旋转角度随位置变化快，对相邻 token 的位置微小差异非常敏感，擅长捕捉**短距离**的局部相对位置信息。
+**低频**维度：对应下图右半区、角速度小的那些维度。旋转角度随位置变化慢，能够区分较**远距离**的相对位置信息，擅长建模全局或长距离依赖。
 [![【LLM基础拓展】RoPE对各序列位置、各维度的作用](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91RoPE%E5%AF%B9%E5%90%84%E5%BA%8F%E5%88%97%E4%BD%8D%E7%BD%AE%E3%80%81%E5%90%84%E7%BB%B4%E5%BA%A6%E7%9A%84%E4%BD%9C%E7%94%A8.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91RoPE%E5%AF%B9%E5%90%84%E5%BA%8F%E5%88%97%E4%BD%8D%E7%BD%AE%E3%80%81%E5%90%84%E7%BB%B4%E5%BA%A6%E7%9A%84%E4%BD%9C%E7%94%A8.png)
 
 <br>
