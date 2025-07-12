@@ -332,9 +332,16 @@ DPO的训练涉及2个模型——策略模型和参考模型。它们的**初�
 [![【免训练的优化技术】Top-P采样（Top-P Sampling）](images_chinese/png_small/%E3%80%90%E5%85%8D%E8%AE%AD%E7%BB%83%E7%9A%84%E4%BC%98%E5%8C%96%E6%8A%80%E6%9C%AF%E3%80%91Top-P%E9%87%87%E6%A0%B7%EF%BC%88Top-P%20Sampling%EF%BC%89.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90%E5%85%8D%E8%AE%AD%E7%BB%83%E7%9A%84%E4%BC%98%E5%8C%96%E6%8A%80%E6%9C%AF%E3%80%91Top-P%E9%87%87%E6%A0%B7%EF%BC%88Top-P%20Sampling%EF%BC%89.png)
 
 ### <a name="header-31"></a>【免训练的优化技术】RAG（检索增强生成,Retrieval-Augmented Generation）
+- **RAG**（Retrieval-Augmented Generation，检索增强生成）是一种结合信息检索与模型生成的技术，通过引入外部知识库或检索系统，增强生成式模型的知识范围和回答准确性。
+- Meta（前身为Facebook AI Research）等研究团队于2020年在其发表的工作中提出了RAG，并显著提升了知识密集型NLP任务的性能。
+- RAG的原理如图所示，整体可分为两部分——离线构建环节和在线服务环节。
 [![【免训练的优化技术】RAG（检索增强生成）](images_chinese/png_small/%E3%80%90%E5%85%8D%E8%AE%AD%E7%BB%83%E7%9A%84%E4%BC%98%E5%8C%96%E6%8A%80%E6%9C%AF%E3%80%91RAG%EF%BC%88%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90%EF%BC%89.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90%E5%85%8D%E8%AE%AD%E7%BB%83%E7%9A%84%E4%BC%98%E5%8C%96%E6%8A%80%E6%9C%AF%E3%80%91RAG%EF%BC%88%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90%EF%BC%89.png)
 
 ### <a name="header-32"></a>【免训练的优化技术】功能调用（Function Calling）
+- **功能调用**（Function Calling），也称工具调用（Tool Use），是指在基于大模型完成任务的过程中，Agent通过特定机制调用外部对象，获取返回结果后将其与原始Prompt一起输入到大模型，由大模型进一步推理并完成特定任务。
+- 被调用的对象可以是远程API、数据库查询接口、本地函数或工具插件（Plugin）等。
+- 下图展示了功能与工具调用技术的运行流程。其中，Agent是一个本地运行的软件系统，大模型是其子模块之一。Agent还包括用户请求解析模块、参数处理模块、工具调用模块、调用结果解析模块及与大模型交互的组件等。
+
 [![【免训练的优化技术】功能调用（Function Calling）](images_chinese/png_small/%E3%80%90%E5%85%8D%E8%AE%AD%E7%BB%83%E7%9A%84%E4%BC%98%E5%8C%96%E6%8A%80%E6%9C%AF%E3%80%91%E5%8A%9F%E8%83%BD%E8%B0%83%E7%94%A8%EF%BC%88Function%20Calling%EF%BC%89.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90%E5%85%8D%E8%AE%AD%E7%BB%83%E7%9A%84%E4%BC%98%E5%8C%96%E6%8A%80%E6%9C%AF%E3%80%91%E5%8A%9F%E8%83%BD%E8%B0%83%E7%94%A8%EF%BC%88Function%20Calling%EF%BC%89.png)
 
 ### <a name="header-33"></a>【强化学习基础】强化学习(Reinforcement Learning, RL)的发展历程
@@ -789,6 +796,8 @@ RLHF训练可以分为**两个阶段**：
 [![【RLHF与RLAIF】基于PPO进行RLHF训练的原理图](images_chinese/png_small/%E3%80%90RLHF%E4%B8%8ERLAIF%E3%80%91%E5%9F%BA%E4%BA%8EPPO%E8%BF%9B%E8%A1%8CRLHF%E8%AE%AD%E7%BB%83%E7%9A%84%E5%8E%9F%E7%90%86%E5%9B%BE.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90RLHF%E4%B8%8ERLAIF%E3%80%91%E5%9F%BA%E4%BA%8EPPO%E8%BF%9B%E8%A1%8CRLHF%E8%AE%AD%E7%BB%83%E7%9A%84%E5%8E%9F%E7%90%86%E5%9B%BE.png)
 
 ### <a name="header-89"></a>【RLHF与RLAIF】拒绝采样（Rejection Sampling）微调
+- **拒绝采样**(Rejection Sampling)微调：是一种基于数据**筛选**的模型微调策略，旨在通过人工或模型标注对模型生成的样本进行筛选，剔除低质量的样本，仅保留优质样本用于进一步微调，Anthropic、Meta等公司均曾利用该技术对语言模型进行优化。
+- 该过程可重复多轮进行。
 [![【RLHF与RLAIF】拒绝采样微调](images_chinese/png_small/%E3%80%90RLHF%E4%B8%8ERLAIF%E3%80%91%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B7%E5%BE%AE%E8%B0%83.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90RLHF%E4%B8%8ERLAIF%E3%80%91%E6%8B%92%E7%BB%9D%E9%87%87%E6%A0%B7%E5%BE%AE%E8%B0%83.png)
 
 ### <a name="header-90"></a>【RLHF与RLAIF】RLAIF与RLHF的区别
@@ -862,6 +871,9 @@ CAI的训练过程：
 [![【LLM基础拓展】ALiBi位置编码](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91ALiBi%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91ALiBi%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81.png)
 
 ### <a name="header-104"></a>【LLM基础拓展】传统的知识蒸馏
+- **知识蒸馏**（Knowledge Distillation）：通过将训练好的**教师模型**输出的**软标签**（soft labels）转移给更小的**学生模型**进行训练，使学生模型学习教师的输出分布信息，从而在**模型压缩**和**推理效率**上获得显著提升。 
+- 最早由**Geoffrey Hinton**等人在论文《Distilling the Knowledge in a Neural Network》中提出。
+
 [![【LLM基础拓展】传统的知识蒸馏](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91%E4%BC%A0%E7%BB%9F%E7%9A%84%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91%E4%BC%A0%E7%BB%9F%E7%9A%84%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F.png)
 
 ### <a name="header-105"></a>【LLM基础拓展】数值表示、量化（Quantization）
@@ -914,13 +926,20 @@ CAI的训练过程：
 [![【LLM基础拓展】MHA、GQA、MQA、MLA](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91MHA%E3%80%81GQA%E3%80%81MQA%E3%80%81MLA.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91MHA%E3%80%81GQA%E3%80%81MQA%E3%80%81MLA.png)
 
 ### <a name="header-112"></a>【LLM基础拓展】RNN（Recurrent Neural Network）
+- **RNN**（Recurrent Neural Network）：一种专门处理**序列数据**的神经网络，通过**循环连接**在每个时间步保留并更新前一时刻的**隐藏状态**，使网络具有记忆能力。 
+- 优点：结构**简单**、能够捕捉**短期依赖**；缺点：易出现**梯度消失/爆炸**，难以学习**长距离依赖**。
 [![【LLM基础拓展】RNN](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91RNN.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91RNN.png)
 
 ### <a name="header-113"></a>【LLM基础拓展】Pre-norm和Post-norm
+- **Pre-norm**：在**子层**（如自注意力或前馈网络）**输入前**先执行**LayerNorm**，然后经过子层并与原始输入进行**残差连接**，可提升**梯度流动**和深层模型的**训练稳定性**  
+- **Post-norm**：在子层输出后与原始输入进行**残差连接**，再执行**LayerNorm**，是**Transformer**的经典结构，但在深层网络中可能导致**梯度衰减**和训练不稳定  
+
 [![【LLM基础拓展】Pre-norm和Post-norm](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91Pre-norm%E5%92%8CPost-norm.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91Pre-norm%E5%92%8CPost-norm.png)
 
 ### <a name="header-114"></a>【LLM基础拓展】BatchNorm和LayerNorm
-- （待续，持续补充注释中 ...）
+- **BatchNorm**（批量归一化）：对每个**小批量**中的每个**通道**进行**标准化**（减去均值、除以标准差），再加上可学习的**缩放**和**偏移**参数。
+- **LayerNorm**（层归一化）：对每个**样本**的所有**特征维度**进行**标准化**（减去均值、除以标准差），同样使用可学习的**缩放**和**偏移**参数。
+
 [![【LLM基础拓展】BatchNorm和LayerNorm](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91BatchNorm%E5%92%8CLayerNorm.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91BatchNorm%E5%92%8CLayerNorm.png)
 
 ### <a name="header-115"></a>【LLM基础拓展】RMSNorm
@@ -1214,7 +1233,7 @@ CAI的训练过程：
 
 
 ## 欢迎共建
-- 欢迎为本项目提交原理图、文档、纠错与修正或其他任何改进！绘图模板示例：[images-template.pptx](./src/assets/images-template.pptx) 
+- 欢迎为本项目提交纠错与修正或其他任何改进！绘图模板示例：[images-template.pptx](./src/assets/images-template.pptx) 
 - 提交步骤：（1）Fork： 点击页面上的"Fork" 按钮，在你的主页创建独立的子仓库 → （2）Clone：将你Fork后的子仓库Clone到本地 → （3）本地新建分支 → （4）修改提交 → （5）Push到远程子仓库 → （6）提交PR：回到Github页面，在你的子仓库界面点击“Compare & pull request”发起PR，等待维护者审核&合并到母仓库。
 - 绘图配色以这些颜色为主： <span style="display:inline-block;width:12px;height:12px;background-color:#71CCF5;border-radius:2px;margin-right:8px;"></span>浅蓝（编码`#71CCF5`） ;   <span style="display:inline-block;width:12px;height:12px;background-color:#FFE699;border-radius:2px;margin-right:8px;"></span>浅黄（编码`#FFE699`）; <span style="display:inline-block;width:12px;height:12px;background-color:#C0BFDE;border-radius:2px;margin-right:8px;"></span>蓝紫（编码`#C0BFDE`） ; <span style="display:inline-block;width:12px;height:12px;background-color:#F0ADB7;border-radius:2px;margin-right:8px;"></span> 粉红（编码`#F0ADB7`）。
 
@@ -1225,7 +1244,7 @@ CAI的训练过程：
 - 修改 —— 你可以对材料进行混合、转换，并基于其创作衍生作品。
 
 同时，你必须遵守以下条款：  
-- **如果用于网络** —— 如果将材料用于帖子、博客等网络内容，请务必保留图片中已包含的原创作者信息。  
+- **如果用于网络** —— 如果将材料用于帖子、博客等网络内容，请务必保留图片中已包含的原创作者+本仓库地址信息。  
 - **如果用于论文、书籍等出版物** —— 如果将材料用于论文、书籍等正式出版物，请按照本仓库规定的[引用格式](#引用格式)在参考文献中注明出处；在这种情况下，图片中原有的原创作者信息可以删除。  
 - **非商业性使用** —— 你不得将这些材料用于任何直接的商业用途.
 
