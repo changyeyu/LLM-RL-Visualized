@@ -370,8 +370,6 @@ Click on the images to view high-resolution versions, or browse the `.svg` vecto
 [![【Policy Optimization & Variants】Policy model update process in PPO training](../images_english/png_small/%E3%80%90Policy%20Optimization%20%26%20Variants%E3%80%91Policy%20model%20update%20process%20in%20PPO%20training.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_english/png_big/%E3%80%90Policy%20Optimization%20%26%20Variants%E3%80%91Policy%20model%20update%20process%20in%20PPO%20training.png)
 
 ### <a name="header-67-2"></a>【Policy Optimization & Variants】PPO Pseudocode
-[![【Policy Optimization & Variants】Policy model update process in PPO training](../images_english/png_small/%E3%80%90Policy%20Optimization%20%26%20Variants%E3%80%91Policy%20model%20update%20process%20in%20PPO%20training.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_english/png_big/%E3%80%90Policy%20Optimization%20%26%20Variants%E3%80%91Policy%20model%20update%20process%20in%20PPO%20training.png)
-
 ```python
 # Abbreviations: R = rewards, V = values, Adv = advantages, J = objective, P = probability
 for iteration in range(num_iterations):  # Perform num_iterations training iterations
