@@ -110,6 +110,7 @@ Click on the images to view high-resolution versions, or browse the `.svg` vecto
 - [【Policy Optimization & Variants】Importance sampling](#header-65)
 - [【Policy Optimization & Variants】PPO-Clip](#header-66)
 - [【Policy Optimization & Variants】Policy model update process in PPO training](#header-67)
+- [【Policy Optimization & Variants】PPO Pseudocode](#header-67-2)
 - [【Policy Optimization & Variants】GRPO & PPO <sup>[<a href="./references.md">72</a>]</sup>](#header-68)
 - [【Policy Optimization & Variants】Deterministic policy vs. Stochastic policy](#header-69)
 - [【Policy Optimization & Variants】DPG](#header-70)
@@ -367,6 +368,65 @@ Click on the images to view high-resolution versions, or browse the `.svg` vecto
 
 ### <a name="header-67"></a>【Policy Optimization & Variants】Policy model update process in PPO training
 [![【Policy Optimization & Variants】Policy model update process in PPO training](../images_english/png_small/%E3%80%90Policy%20Optimization%20%26%20Variants%E3%80%91Policy%20model%20update%20process%20in%20PPO%20training.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_english/png_big/%E3%80%90Policy%20Optimization%20%26%20Variants%E3%80%91Policy%20model%20update%20process%20in%20PPO%20training.png)
+
+### <a name="header-67-2"></a>【Policy Optimization & Variants】PPO Pseudocode
+[![【Policy Optimization & Variants】Policy model update process in PPO training](../images_english/png_small/%E3%80%90Policy%20Optimization%20%26%20Variants%E3%80%91Policy%20model%20update%20process%20in%20PPO%20training.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_english/png_big/%E3%80%90Policy%20Optimization%20%26%20Variants%E3%80%91Policy%20model%20update%20process%20in%20PPO%20training.png)
+
+```python
+# Abbreviations: R = rewards, V = values, Adv = advantages, J = objective, P = probability
+for iteration in range(num_iterations):  # Perform num_iterations training iterations
+    # [1/2] Collect samples (prompt, response_old, logP_old, Adv, V_target)
+    prompt_batch, response_old_batch = [], []
+    logP_old_batch, Adv_batch, V_target_batch = [], [], []
+    for _ in range(num_examples):
+        logP_old, response_old  = actor_model(prompt)
+        V_old    = critic_model(prompt, response_old)
+        R        = reward_model(prompt, response_old)[-1]
+        logP_ref = ref_model(prompt, response_old)
+        
+        # KL penalty. Note: R here is only the reward for the final token
+        KL = logP_old - logP_ref
+        R_with_KL = R - scale_factor * KL
+
+        # Compute advantage Adv via GAE
+        Adv = GAE_Advantage(R_with_KL, V_old, gamma, λ)
+        V_target = Adv + V_old
+
+        prompt_batch        += prompt
+        response_old_batch  += response_old
+        logP_old_batch      += logP_old
+        Adv_batch           += Adv
+        V_target_batch      += V_target
+
+    # [2/2] PPO training loop: multiple parameter updates
+    for _ in range(ppo_epochs):
+        mini_batches = shuffle_split(
+            (prompt_batch, response_old_batch, logP_old_batch, Adv_batch, V_target_batch),
+            mini_batch_size
+        )
+        
+        for prompt, response_old, logP_old, Adv, V_target in mini_batches:
+            logits, logP_new = actor_model(prompt, response_old)
+            V_new            = critic_model(prompt, response_old)
+
+            # Probability ratio: ratio(θ) = π_θ(a|s) / π_{θ_old}(a|s)
+            ratios = exp(logP_new - logP_old)
+
+            # Compute clipped policy loss
+            L_clip = -mean(
+                min(ratios * Adv,
+                    clip(ratios, 1 - ε, 1 + ε) * Adv)
+            )
+            
+            S_entropy = mean(compute_entropy(logits))  # Compute policy entropy
+
+            Loss_V = mean((V_new - V_target) ** 2)     # Compute value function loss
+
+            # Total loss
+            Loss = L_clip + C1 * Loss_V - C2 * S_entropy
+
+            backward_update(Loss, L_clip, Loss_V)      # Backpropagate and update parameters
+```
 
 ### <a name="header-68"></a>【Policy Optimization & Variants】GRPO & PPO <sup>[<a href="./references.md">72</a>]</sup>
 [![【Policy Optimization & Variants】GRPO & PPO](../images_english/png_small/%E3%80%90Policy%20Optimization%20%26%20Variants%E3%80%91GRPO%20%26%20PPO.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_english/png_big/%E3%80%90Policy%20Optimization%20%26%20Variants%E3%80%91GRPO%20%26%20PPO.png)

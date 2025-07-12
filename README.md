@@ -823,7 +823,7 @@ CAI的训练过程：
 [![【RLHF与RLAIF】OpenAI RBR（基于规则的奖励）](images_chinese/png_small/%E3%80%90RLHF%E4%B8%8ERLAIF%E3%80%91OpenAI%20RBR%EF%BC%88%E5%9F%BA%E4%BA%8E%E8%A7%84%E5%88%99%E7%9A%84%E5%A5%96%E5%8A%B1%EF%BC%89.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90RLHF%E4%B8%8ERLAIF%E3%80%91OpenAI%20RBR%EF%BC%88%E5%9F%BA%E4%BA%8E%E8%A7%84%E5%88%99%E7%9A%84%E5%A5%96%E5%8A%B1%EF%BC%89.png)
 
 ### <a name="header-93"></a>【逻辑推理能力优化】基于CoT的知识蒸馏（Knowledge Distillation）
-- **知识蒸馏**（Knowledge Distillation, KD）是一种模型**压缩**技术，由Geoffrey E. Hinton等人于2015年提出。
+- **知识蒸馏**（Knowledge Distillation, KD）是一种模型**压缩**技术，由**深度学习之父**Geoffrey Hinton等人于2015年提出。
 - 强大模型（例如OpenAI的o系列模型、DeepSeek、Qwen等）生成CoT推理链和回答结果，并将其作为训练数据用于对**较弱**模型进行**蒸馏训练**。
 - 需要注意的是，此处的方法与传统知识蒸馏略**有区别**。
 [![【逻辑推理能力优化】基于CoT的知识蒸馏](images_chinese/png_small/%E3%80%90%E9%80%BB%E8%BE%91%E6%8E%A8%E7%90%86%E8%83%BD%E5%8A%9B%E4%BC%98%E5%8C%96%E3%80%91%E5%9F%BA%E4%BA%8ECoT%E7%9A%84%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90%E9%80%BB%E8%BE%91%E6%8E%A8%E7%90%86%E8%83%BD%E5%8A%9B%E4%BC%98%E5%8C%96%E3%80%91%E5%9F%BA%E4%BA%8ECoT%E7%9A%84%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F.png)
@@ -872,7 +872,7 @@ CAI的训练过程：
 
 ### <a name="header-104"></a>【LLM基础拓展】传统的知识蒸馏
 - **知识蒸馏**（Knowledge Distillation）：通过将训练好的**教师模型**输出的**软标签**（soft labels）转移给更小的**学生模型**进行训练，使学生模型学习教师的输出分布信息，从而在**模型压缩**和**推理效率**上获得显著提升。 
-- 最早由**Geoffrey Hinton**等人在论文《Distilling the Knowledge in a Neural Network》中提出。
+- 最早由**深度学习之父**Geoffrey Hinton等人在论文《Distilling the Knowledge in a Neural Network》中提出。
 
 [![【LLM基础拓展】传统的知识蒸馏](images_chinese/png_small/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91%E4%BC%A0%E7%BB%9F%E7%9A%84%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/png_big/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E6%8B%93%E5%B1%95%E3%80%91%E4%BC%A0%E7%BB%9F%E7%9A%84%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F.png)
 
