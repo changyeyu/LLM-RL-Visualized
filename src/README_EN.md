@@ -2,7 +2,6 @@
   <img src="../src/assets/banner/幻灯片1.SVG" alt="Illustrated Large Model Algorithms: LLM, RL, VLM ..." />
 </p>
 
-
 <p align="center">
     <a href="./README_EN.md">
     <img
@@ -26,8 +25,6 @@
 </p>
 
 
-
-
 ---
 ## Description
 
@@ -37,10 +34,7 @@
 
 🎉 **Continuously updated** and actively maintained — click **Star ⭐** to stay tuned!
 
-🎉 Contributions welcome — see the <a href="#contributing" style="color:rgb(44, 46, 49); text-decoration: underline;">Contributing Guide</a> to get involved.
-
 Click on the images to view high-resolution versions, or browse the `.svg` vector files in the repository for infinite zoom support.
-
 
 ## Table of Contents
 - [Overall Architecture of Large Model Algorithms (Focusing on LLMs and VLMs)](#header-1)
@@ -172,12 +166,12 @@ Click on the images to view high-resolution versions, or browse the `.svg` vecto
 
 ### <a name="header-2"></a>【LLM basics】LLM overview
 - This is the culmination of dozens of hours of dedicated effort; clicking the **Star ⭐** at the top right ↗ of this repository is my greatest encouragement!
-- LLMs mainly come in two forms: Decoder-Only or MoE (Mixture of Experts). The overall architectures are similar; the main difference is that MoE introduces multiple expert networks into the FFN (Feed-Forward Network) component.
+- LLMs mainly come in two forms: Decoder-Only or MoE (Mixture of Experts). The overall architectures are similar; the **main difference** is that MoE introduces multiple expert networks into the FFN (Feed-Forward Network) component.
 
 [![【LLM basics】LLM overview](../images_english/source_svg/%E3%80%90LLM%20basics%E3%80%91LLM%20overview.svg)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_english/source_svg/%E3%80%90LLM%20basics%E3%80%91LLM%20overview.svg)
 
 ### <a name="header-3"></a>【LLM basics】LLM structure
-- LLMs mainly come in two forms: Decoder-Only or MoE (Mixture of Experts). The overall architectures are similar; the key difference is that MoE introduces multiple expert networks into the FFN (Feed-Forward Network) component.
+- LLMs mainly come in **two forms**: Decoder-Only or MoE (Mixture of Experts). The overall architectures are similar; the key difference is that MoE introduces multiple expert networks into the FFN (Feed-Forward Network) component.
 - A typical LLM architecture can be divided into three parts: the input layer, the multi-layer stacked Decoder structure, and the output layer (including the language model head and the decoding module).
 
 [![【LLM basics】LLM structure](../images_english/png_small/%E3%80%90LLM%20basics%E3%80%91LLM%20structure.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_english/png_big/%E3%80%90LLM%20basics%E3%80%91LLM%20structure.png)
@@ -185,7 +179,7 @@ Click on the images to view high-resolution versions, or browse the `.svg` vecto
 ### <a name="header-4"></a>【LLM basics】LLM generation and decoding
 - **Decoding strategies** are the core factors that determine the fluency, diversity, and overall performance of the final output text. **Common** decoding algorithms include: Greedy Search, Beam Search and its variants, Multinomial Sampling, Top-K Sampling, Top-P Sampling, Contrastive Search, Speculative Decoding, Lookahead Decoding, DoLa Decoding, and others.
 - The output layer of an LLM is responsible for applying a **decoding algorithm** to the probability distribution to determine the final predicted next token(s).
-- Based on the probability distribution, the decoding strategy (e.g., random sampling or selecting the highest probability) is applied to choose the **next** token. For example, under Greedy Search, the token “我” (“I”) with the highest probability would be selected.
+- Based on the probability distribution, the decoding strategy (e.g., random sampling or selecting the highest probability) is applied to choose the **next** token. For example, under Greedy Search, the token “I'm” with the highest probability would be selected.
 - Each token generation requires **passing through** all layers of the Transformer structure again.
 - This diagram shows one-token-at-a-time prediction. There are also multi-token prediction schemes; see Chapter 4 of *Large Model Algorithms: Reinforcement Learning, Fine-Tuning, and Alignment* for details.
 
@@ -200,8 +194,8 @@ The output layer of an LLM predicts the next token (text) based on the hidden st
 - (1) **Input hidden states**: The hidden states from the final Decoder layer serve as input to the LLM’s output layer. For example, a 3×896 tensor containing all semantic information of the prefix sequence.
 - (2) **Language Model Head** (LM Head): Typically a fully connected layer that converts hidden states to logits (calculating only the last position’s logits during inference). For example, producing a 3×151936 matrix of scores for each vocabulary token.
 - (3) **Extract last position logits**: Next-token prediction depends only on the logits at the last position, so we extract the final row from the logits matrix, yielding a 151936-dimensional vector [2.0, 3.1, −1.7, …, −1.7].
-- (4) **Convert to probability distribution** (Softmax): Apply Softmax to the logits to obtain probabilities for each vocabulary token. For example, a 151936-dimensional vector [0.01, 0.03, 0.001, …, 0.001], summing to 1. A higher probability indicates a higher chance of being chosen as the next token (e.g., “我” has p=0.34).
-- (5) **Decoding**: Apply the decoding strategy (e.g., random sampling or choosing the maximum) to the probability distribution to determine the next token. Under Greedy Search, select the token with the highest probability, such as “我”.
+- (4) **Convert to probability distribution** (Softmax): Apply Softmax to the logits to obtain probabilities for each vocabulary token. For example, a 151936-dimensional vector [0.01, 0.03, 0.001, …, 0.001], summing to 1. A higher probability indicates a higher chance of being chosen as the next token (e.g., “I'm” has p=0.34).
+- (5) **Decoding**: Apply the decoding strategy (e.g., random sampling or choosing the maximum) to the probability distribution to determine the next token. Under Greedy Search, select the token with the highest probability, such as “I'm”.
 
 [![【LLM basics】LLM output](../images_english/png_small/%E3%80%90LLM%20basics%E3%80%91LLM%20output.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_english/png_big/%E3%80%90LLM%20basics%E3%80%91LLM%20output.png)
 
@@ -347,7 +341,7 @@ Unlike RLHF, DPO simplifies alignment via supervised learning:
 [![【RL basics】History of RL](../images_english/png_small/%E3%80%90RL%20basics%E3%80%91History%20of%20RL.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_english/png_big/%E3%80%90RL%20basics%E3%80%91History%20of%20RL.png)
 
 ### <a name="header-32"></a>【RL basics】Three major machine learning paradigms
-- The three paradigms are Unsupervised Learning, Supervised Learning, and Reinforcement Learning.
+- The three paradigms are : Unsupervised Learning, Supervised Learning, and Reinforcement Learning.
 
 [![【RL basics】Three major machine learning paradigms](../images_english/png_small/%E3%80%90RL%20basics%E3%80%91Three%20major%20machine%20learning%20paradigms.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_english/png_big/%E3%80%90RL%20basics%E3%80%91Three%20major%20machine%20learning%20paradigms.png)
 
@@ -443,7 +437,7 @@ DQN has two IO variants:
 [![【RL basics】How to use DQN](../images_english/png_small/%E3%80%90RL%20basics%E3%80%91How%20to%20use%20DQN.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_english/png_big/%E3%80%90RL%20basics%E3%80%91How%20to%20use%20DQN.png)
 
 ### <a name="header-50"></a>【RL basics】DQN's overestimation problem
-- Two core issues: 
+- Two core issues of DQN: 
 - (1) **Overestimation** of Q-values due to max operations accumulating error unevenly across actions. 
 - (2) **Bootstrapping** (“dog chases its tail”) where the target depends on the same network weights, causing training instability and convergence difficulties.
 
@@ -456,7 +450,7 @@ DQN has two IO variants:
 [![【RL basics】Value-Based vs Policy-Based](../images_english/png_small/%E3%80%90RL%20basics%E3%80%91Value-Based%20vs%20Policy-Based.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_english/png_big/%E3%80%90RL%20basics%E3%80%91Value-Based%20vs%20Policy-Based.png)
 
 ### <a name="header-52"></a>【RL basics】Policy gradient
-- **Policy Gradients** underpin many RL algorithms (PPO, GRPO, DPG, Actor-Critic variants). Sutton et al. formalized the **Policy Gradient Theorem**. Unlike value-based methods, policy-based methods optimize π directly via gradient ascent.
+- **Policy Gradients** underpin many RL algorithms (PPO, GRPO, DPG, Actor-Critic variants). **Sutton** et al. formalized the **Policy Gradient Theorem**. Unlike value-based methods, policy-based methods optimize π directly via gradient ascent.
 
 [![【RL basics】Policy gradient](../images_english/png_small/%E3%80%90RL%20basics%E3%80%91Policy%20gradient.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_english/png_big/%E3%80%90RL%20basics%E3%80%91Policy%20gradient.png)
 
@@ -489,7 +483,8 @@ DQN has two IO variants:
 [![【RL basics】Inverse RL(IRL) and RL](../images_english/png_small/%E3%80%90RL%20basics%E3%80%91Inverse%20RL%28IRL%29%20and%20RL.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_english/png_big/%E3%80%90RL%20basics%E3%80%91Inverse%20RL%28IRL%29%20and%20RL.png)
 
 ### <a name="header-58"></a>【RL basics】Model-Based and Model-Free
-- **Model-Based**: uses environment model for planning; **Model-Free**: learns value or policy directly from interaction.
+- **Model-Based**: uses environment model for planning
+- **Model-Free**: learns value or policy directly from interaction.
 
 [![【RL basics】Model-Based and Model-Free](../images_english/png_small/%E3%80%90RL%20basics%E3%80%91Model-Based%20and%20Model-Free.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_english/png_big/%E3%80%90RL%20basics%E3%80%91Model-Based%20and%20Model-Free.png)
 
@@ -556,7 +551,7 @@ def compute_gae(rewards, values, gamma=0.99, lambda_=0.95):
 [![【Policy Optimization & Variants】TRPO and its trust region](../images_english/png_small/%E3%80%90Policy%20Optimization%20%26%20Variants%E3%80%91TRPO%20and%20its%20trust%20region.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_english/png_big/%E3%80%90Policy%20Optimization%20%26%20Variants%E3%80%91TRPO%20and%20its%20trust%20region.png)
 
 ### <a name="header-65"></a>【Policy Optimization & Variants】Importance sampling
-- Importance Sampling corrects distribution mismatch between old and new policies, enabling reuse of old data to optimize the new policy.
+- **Importance Sampling** corrects distribution mismatch between old and new policies, enabling reuse of old data to optimize the new policy.
 - It samples from an auxiliary distribution and applies importance weights to improve estimation efficiency.
 - It requires that if p(x)>0 then p′(x)>0, ensuring no probability mass is lost during reweighting.
 
@@ -635,7 +630,7 @@ for iteration in range(num_iterations):  # Perform num_iterations training itera
 ```
 
 ### <a name="header-68"></a>【Policy Optimization & Variants】GRPO & PPO <sup>[<a href="./references.md">72</a>]</sup>
-- GRPO (Group Relative Policy Optimization) is a policy-based RL algorithm by DeepSeek.
+- GRPO (Group Relative Policy Optimization) is a policy-based RL algorithm by **DeepSeek**.
 - It removes the separate value network and uses group-relative advantage estimation as a baseline, reducing resource usage while maintaining stability.
 [![【Policy Optimization & Variants】GRPO & PPO](../images_english/png_small/%E3%80%90Policy%20Optimization%20%26%20Variants%E3%80%91GRPO%20%26%20PPO.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_english/png_big/%E3%80%90Policy%20Optimization%20%26%20Variants%E3%80%91GRPO%20%26%20PPO.png)
 
@@ -747,7 +742,7 @@ for iteration in range(num_iterations):  # Perform num_iterations training itera
 [![【RLHF and RLAIF】The Process of Calculating KL in PPO](../images_english/png_small/%E3%80%90RLHF%20and%20RLAIF%E3%80%91The%20Process%20of%20Calculating%20KL%20in%20PPO.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_english/png_big/%E3%80%90RLHF%20and%20RLAIF%E3%80%91The%20Process%20of%20Calculating%20KL%20in%20PPO.png)
 
 ### <a name="header-84"></a>【RLHF and RLAIF】RLHF Training Based on PPO
-- The PPO RLHF workflow is split into two halves: experience collection and multi-epoch PPO training, iterating via a replay buffer with old/new model versions.
+- The PPO RLHF workflow is split into **two halves**: experience collection and multi-epoch PPO training, iterating via a replay buffer with old/new model versions.
 
 [![【RLHF and RLAIF】RLHF Training Based on PPO](../images_english/png_small/%E3%80%90RLHF%20and%20RLAIF%E3%80%91RLHF%20Training%20Based%20on%20PPO.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_english/png_big/%E3%80%90RLHF%20and%20RLAIF%E3%80%91RLHF%20Training%20Based%20on%20PPO.png)
 
@@ -777,7 +772,7 @@ for iteration in range(num_iterations):  # Perform num_iterations training itera
 [![【RLHF and RLAIF】OpenAI RBR(Rule-Based Reward)](../images_english/png_small/%E3%80%90RLHF%20and%20RLAIF%E3%80%91OpenAI%20RBR%28Rule-Based%20Reward%29.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_english/png_big/%E3%80%90RLHF%20and%20RLAIF%E3%80%91OpenAI%20RBR%28Rule-Based%20Reward%29.png)
 
 ### <a name="header-89"></a>【Reasoning capacity optimization】Knowledge Distillation Based on CoT
-- Knowledge Distillation (KD) by Hinton et al. (2015) compresses models by transferring teacher outputs (soft labels) to a student. In reasoning tasks, distill CoT chains and answers from a strong model to a smaller one.
+- Knowledge Distillation (KD) by **Hinton** et al. (2015) compresses models by transferring teacher outputs (soft labels) to a student. In reasoning tasks, distill CoT chains and answers from a strong model to a smaller one.
 
 [![【Reasoning capacity optimization】Knowledge Distillation Based on CoT](../images_english/png_small/%E3%80%90Reasoning%20capacity%20optimization%E3%80%91Knowledge%20Distillation%20Based%20on%20CoT.png)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_english/png_big/%E3%80%90Reasoning%20capacity%20optimization%E3%80%91Knowledge%20Distillation%20Based%20on%20CoT.png)
 
@@ -959,8 +954,7 @@ for iteration in range(num_iterations):  # Perform num_iterations training itera
 
 
 ## Contributing
-- **Contributions are welcome!** Whether it's new diagrams, documentation, error corrections, or other improvements. You're welcome to include your name or nickname in the diagrams. Your GitHub account will also be listed in the **Contributors** to help more people discover you and your work. Example diagram template: [images-template.pptx](./assets/images-template.pptx)
-
+- **Contributions are welcome!** Example diagram template: [images-template.pptx](./assets/images-template.pptx)
 
 -  **How to contribute:**  
   (1) Fork: Click the "Fork" button to create a copy of the repo under your GitHub account →  
@@ -986,7 +980,6 @@ You must also comply with the following terms:
 - **For Web Use** — If using the materials in blog posts or online content, please retain the original author information embedded in the images.  
 - **For Papers, Books, and Publications** — If using the materials in formal publications, please cite the source using the format below. In such cases, the embedded author info may be removed from the image.  
 - **Non-commercial Use Only** — These materials may not be used for any direct commercial purposes.
-
 
 
 ## Citation
