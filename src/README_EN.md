@@ -30,7 +30,7 @@
 
 🎉 **100+ original diagrams**visualizing core concepts of large model algorithms — from LLMs, VLMs, and training methods (RL, RLHF, GRPO, DPO, SFT, distillation) to RAG and performance optimization.
 
-🎉 Originally based on the diagrams from the Chinese **book** [《大模型算法：强化学习、微调与对齐》](https://item.jd.com/15017130.html) (<em>Large Model Algorithms: Reinforcement Learning, Fine-Tuning, and Alignment</em>), this project has since been continuously expanded with new content and improvements.
+🎉 Originally based on the diagrams from the Chinese **book** [《大模型算法：强化学习、微调与对齐》](https://book.douban.com/subject/37331056/) (<em>Large Model Algorithms: Reinforcement Learning, Fine-Tuning, and Alignment</em>), this project has since been continuously expanded with new content and improvements.
 
 🎉 **Continuously updated** and actively maintained — click **Star ⭐** to stay tuned!
 
