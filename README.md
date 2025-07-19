@@ -26,17 +26,20 @@
 ---
 
 ## 简 介
+
 🎉 **原创 100+ 架构图，系统讲解大模型、强化学习**，涵盖：LLM / VLM 等大模型原理、训练算法（RL、RLHF、GRPO、DPO、SFT 与 CoT 蒸馏等）、效果优化与 RAG 等。  
 
 🎉 关于架构图<strong>更详细</strong>的解读可参考：<a href="https://book.douban.com/subject/37331056/">《大模型算法：强化学习、微调与对齐》</a>
 
 🎉 本仓库**长期勘误、追加**，欢迎点击仓库顶部的 **Star ⭐** 关注，感谢鼓励✨
 
-🎉 点击图片可查看高清大图，或浏览仓库目录中的 `.svg` 格式矢量图（活图，可无限缩放）
+🎉 单击图片可看高清大图，或浏览仓库目录中的 `.svg` 格式矢量图（活图，可无限缩放、可选择文字）
 
 ---
 
+
 ## 目 录
+
 ### 第1部分：大模型、强化学习的技术全景图
 - [大模型算法总体架构（以LLM、VLM为主）](#header-1)  
 - [强化学习算法图谱 (rl‑algo‑map).pdf——全网最大！](#header-126)
@@ -1252,9 +1255,7 @@ CAI的训练过程：
 - 💚**公众号**：叶子哥AI  
 
 
-
-
-## 欢迎共建
+## 欢迎建议
 - 欢迎为本项目提交纠错与修正或其他任何改进！绘图模板示例：[images-template.pptx](./src/assets/images-template.pptx) 
 - 提交步骤：（1）Fork： 点击页面上的"Fork" 按钮，在你的主页创建独立的子仓库 → （2）Clone：将你Fork后的子仓库Clone到本地 → （3）本地新建分支 → （4）修改提交 → （5）Push到远程子仓库 → （6）提交PR：回到Github页面，在你的子仓库界面点击“Compare & pull request”发起PR，等待维护者审核&合并到母仓库。
 - 绘图配色以这些颜色为主： <span style="display:inline-block;width:12px;height:12px;background-color:#71CCF5;border-radius:2px;margin-right:8px;"></span>浅蓝（编码`#71CCF5`） ;   <span style="display:inline-block;width:12px;height:12px;background-color:#FFE699;border-radius:2px;margin-right:8px;"></span>浅黄（编码`#FFE699`）; <span style="display:inline-block;width:12px;height:12px;background-color:#C0BFDE;border-radius:2px;margin-right:8px;"></span>蓝紫（编码`#C0BFDE`） ; <span style="display:inline-block;width:12px;height:12px;background-color:#F0ADB7;border-radius:2px;margin-right:8px;"></span> 粉红（编码`#F0ADB7`）。
