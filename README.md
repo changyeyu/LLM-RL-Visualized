@@ -80,7 +80,7 @@
 - [RAG（检索增强生成, Retrieval‑Augmented Generation）](#header-31)  
 - [功能调用（Function Calling）](#header-32)
 
-### 第6部分：强化学习基础
+### 第6部分：强化学习（RL）基础
 - [强化学习(Reinforcement Learning, RL)的发展历程](#header-33)  
 - [三大机器学习范式](#header-34)  
 - [强化学习的基础架构](#header-35)  
@@ -147,7 +147,7 @@
 - [Claude模型应用的宪法AI（CAI）原理](#header-91)  
 - [OpenAI RBR（基于规则的奖励）](#header-92)
 
-### 第9部分：逻辑推理能力优化
+### 第9部分：逻辑推理（Reasoning）能力优化
 - [基于 CoT 的知识蒸馏（Knowledge Distillation）](#header-93)  
 - [基于 DeepSeek 进行蒸馏](#header-94)  
 - [ORM 和 PRM（结果奖励模型和过程奖励模型）](#header-95)  
