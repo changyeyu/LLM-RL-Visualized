@@ -26,13 +26,13 @@
 ---
 
 ## 简 介
-🎉 **原创 100+ 架构图，重磅开源！大模型算法一览无余！** 涵盖 LLM、VLM 等大模型技术，训练算法（RL、RLHF、GRPO、DPO、SFT 与 CoT 蒸馏等）、效果优化与 RAG 等。  
+🎉 **原创 100+ 架构图，系统讲解大模型、强化学习**，涵盖：LLM / VLM 等大模型原理、训练算法（RL、RLHF、GRPO、DPO、SFT 与 CoT 蒸馏等）、效果优化与 RAG 等。  
 
-🎉 架构图的<strong>文字详解、更多架构图</strong> 详见：<a href="https://book.douban.com/subject/37331056/">《大模型算法：强化学习、微调与对齐》</a>
+🎉 关于架构图<strong>更详细</strong>的解读可参考：<a href="https://book.douban.com/subject/37331056/">《大模型算法：强化学习、微调与对齐》</a>
 
-🎉 本项目 **长期勘误、更新、追加**，欢迎点击右上角 ↗ 的 **Star ⭐** 关注！  
+🎉 本仓库**长期勘误、追加**，欢迎点击仓库顶部的 **Star ⭐** 关注，感谢鼓励✨
 
-🎉 点击图片可查看高清大图，或浏览仓库目录中的 `.svg` 格式矢量图（支持无限缩放）
+🎉 点击图片可查看高清大图，或浏览仓库目录中的 `.svg` 格式矢量图（活图，可无限缩放）
 
 ---
 
@@ -99,7 +99,7 @@
 - [TD(0)、多步 TD 与蒙特卡洛的关系](#header-48)  
 - [蒙特卡洛方法与 TD 方法的特性](#header-49)  
 - [蒙特卡洛、TD、DP、穷举搜索的关系](#header-50)  
-- [两种输入输出结构的 DQN （Deep Q-Network）模型](#header-51)  
+- [两种输入输出结构的 DQN（Deep Q-Network）模型](#header-51)  
 - [DQN 的实际应用示例](#header-52)  
 - [DQN 的“高估”问题](#header-53)  
 - [基于价值 vs 策略（Value-Based vs Policy-Based）](#header-54)  
@@ -1326,7 +1326,7 @@ Beijing: Publishing House of Electronics Industry, 2025. https://github.com/chan
 ---
 
 <div align="center">
-本仓库图片的<strong>文字详解、更多图</strong> 详见：<a href="https://book.douban.com/subject/37331056/">《大模型算法：强化学习、微调与对齐》</a>
+以上图片<strong>更详细</strong>的解读可参考：<a href="https://book.douban.com/subject/37331056/">《大模型算法：强化学习、微调与对齐》</a>
 
-欢迎点击仓库顶部的 **Star ⭐**，   谢谢鼓励~
+欢迎点击仓库顶部的 **Star ⭐** 关注， 感谢鼓励✨
 </div>
