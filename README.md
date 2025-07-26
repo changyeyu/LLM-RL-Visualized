@@ -42,7 +42,7 @@
 
 ### 第1部分：大模型、强化学习的技术全景图
 - [大模型算法总体架构（以LLM、VLM为主）](#header-1)  
-- [强化学习算法图谱 (rl‑algo‑map).pdf——全网最大！](#header-126)
+- [强化学习算法图谱 (rl‑algo‑map).pdf——全网最大！](#header-1.5)
 - [LLM结构总图——全网最大！](#header-2)  
 
 ### 第2部分：大模型基础
@@ -196,7 +196,7 @@
 ### <a name="header-1"></a>大模型算法总体架构（以LLM、VLM为主）
 <img src="src/assets/大模型算法-内容架构-zh.png" alt="大模型算法-内容架构">
 
-### <a name="header-126"></a> 强化学习算法图谱 (rl-algo-map).pdf——全网最大！
+### <a name="header-1.5"></a> 强化学习算法图谱 (rl-algo-map).pdf——全网最大！
 - 本人历时数天、呕心沥血之作，点击本仓库右上角 ↗ 的 **Star ⭐** ，就是对我最大的鼓励啦！
 - 下图仅为预览图，高清图见： <a href="https://github.com/changyeyu/LLM-RL-Visualized/blob/master/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E5%9B%BE%E8%B0%B1%20(rl-algo-map).pdf"> 强化学习算法图谱 (rl-algo-map).pdf </a>
 [![强化学习算法图谱 (rl-algo-map).pdf](images_chinese/rl-algo-map-preview.png)](https://github.com/changyeyu/LLM-RL-Visualized/blob/master/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E5%9B%BE%E8%B0%B1%20(rl-algo-map).pdf)
