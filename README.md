@@ -1249,10 +1249,10 @@ CAI的训练过程：
 
 
 ## 交流讨论
-- 本人的 B站 / 知乎 / 公众号 ，均可私信交流。
-- 📺**B 站**（叶子哥AI）：[https://space.bilibili.com/3546693609982728](https://space.bilibili.com/3546693609982728)  
+- 本人的 公众号 / 知乎 / B站 ，均可**私信**交流。
+- 💚**公众号**：**叶子哥AI**，扫码关注：  <a href="src/assets/WeChat.jpg"><img src="src/assets/WeChat.jpg" alt="WeChat" width="80" height="80" align="middle"></a>
 - 📘**知乎**（叶子哥AI）：[https://www.zhihu.com/people/yezibro](https://www.zhihu.com/people/yezibro)  
-- 💚**公众号**：叶子哥AI  
+- 📺**B 站**（叶子哥AI）：[https://space.bilibili.com/3546693609982728](https://space.bilibili.com/3546693609982728)  
 
 
 ## 欢迎建议
