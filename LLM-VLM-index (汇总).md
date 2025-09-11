@@ -91,8 +91,9 @@
 ---
 
 <div align="center">
- 长期更新， 欢迎点击  **Star**⭐ —— 感谢鼓励！✨
 
-Continuously updated. Click **Star**⭐ to show support — thank you!✨
+长期更新， 欢迎点击  [Star⭐](https://github.com/changyeyu)  —— 感谢鼓励！✨
+
+Continuously updated. Click [Star⭐](https://github.com/changyeyu) to show support — thank you!✨
 
 </div>
