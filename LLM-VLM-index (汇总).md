@@ -59,6 +59,12 @@
 
 ---
 
+
+
+
+
+
+
 <a id="vlm"></a>
 <h1 align="center">Open-Source VLMs（开源）</h1>
 <p align="center">
@@ -84,7 +90,7 @@
 | **MiniCPM-V 4.5**    | Openbmb(面壁)          | 2024.08 | 📕[PDF](https://arxiv.org/pdf/2408.01800)                | 📁[Code](https://huggingface.co/openbmb/MiniCPM-V-4_5/blob/main/modeling_minicpmv.py)                                       | ⚙️[Config & Models](https://huggingface.co/openbmb/MiniCPM-V-4_5/blob/main/config.json)               |
 | **InternVL1.5**      | Shanghai AI Lab      | 2024.04 | 📕[PDF](https://arxiv.org/pdf/2404.16821)                | 📁[Code](https://huggingface.co/OpenGVLab/InternVL-Chat-V1-5/blob/main/modeling_internvl_chat.py)                           | ⚙️[Config & Models](https://huggingface.co/OpenGVLab/InternVL-Chat-V1-5/blob/main/config.json)        |
 | **Qwen-VL**          | Alibaba (阿里巴巴)        | 2023.08 | 📕[PDF](https://arxiv.org/pdf/2308.12966)                | 📁[Code](https://huggingface.co/Qwen/Qwen-VL/blob/main/modeling_qwen.py)                                                    | ⚙️[Config & Models](https://huggingface.co/Qwen/Qwen-VL/blob/main/config.json)                        |
-| **LLaVA**            |  University of Wisconsin–Madison      | 2023.07 | 🌍[Github](https://github.com/haotian-liu/LLaVA/tree/main) | 📁[Code](https://github.com/huggingface/transformers/tree/main/src/transformers/models/llava)          | ⚙️[Config & Models](https://github.com/haotian-liu/LLaVA/blob/main/docs/MODEL_ZOO.md)                 |
+| **LLaVA**            |  University of Wisconsin      | 2023.07 | 🌍[Github](https://github.com/haotian-liu/LLaVA/tree/main) | 📁[Code](https://github.com/huggingface/transformers/tree/main/src/transformers/models/llava)          | ⚙️[Config & Models](https://github.com/haotian-liu/LLaVA/blob/main/docs/MODEL_ZOO.md)                 |
 
 
 <br>
