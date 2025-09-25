@@ -32,6 +32,7 @@
 | 国内外各家 LLM / VLM 汇总｜[LLM-VLM-index（汇总）.md](https://github.com/changyeyu/LLM-RL-Visualized/blob/master/LLM-VLM-index%20(%E6%B1%87%E6%80%BB).md) | 大模型算法 | Paper / 代码 / 配置集中整理 |
 | 《视觉 SLAM 十四讲（第 2 版）》｜[豆瓣](https://book.douban.com/subject/34782244/)｜📕[Repo/PDF](https://github.com/gaoxiang12/slambook2) | SLAM 算法 | 豆瓣 9.3 分，配套开源 |
 | CUDA C++ Programming Guide｜📕[PDF](https://docs.nvidia.com/cuda/pdf/CUDA_C_Programming_Guide.pdf) | AI 工程 | NVIDIA 官方教程，理解 GPU & CUDA 架构必读，官方长期更新 |
+| 论文  | AI 算法 | 多数算法只能看论文了解：https://arxiv.org/  大多均可在此查阅下载。 |
 
 <br>
 
