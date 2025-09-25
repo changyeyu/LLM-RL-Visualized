@@ -1,4 +1,4 @@
-<h1 align="center">AI-Roadmap（AI 知识架构）</h1>
+<h1 align="center"> AI-Roadmap </h1>
 
 <p align="center">
   <img src="images_chinese/source_svg/AI%20Roadmap(AI%E7%9F%A5%E8%AF%86%E6%9E%B6%E6%9E%84).svg" alt="AI Roadmap（AI知识架构）" />
