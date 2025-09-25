@@ -32,7 +32,7 @@
 | 国内外各家 LLM / VLM 汇总｜[LLM-VLM-index（汇总）.md](https://github.com/changyeyu/LLM-RL-Visualized/blob/master/LLM-VLM-index%20(%E6%B1%87%E6%80%BB).md) | 大模型算法 | Paper / 代码 / 配置集中整理 |
 | 《视觉 SLAM 十四讲（第 2 版）》｜[豆瓣](https://book.douban.com/subject/34782244/)｜📕[Repo/PDF](https://github.com/gaoxiang12/slambook2) | SLAM 算法 | 豆瓣 9.3 分，配套开源 |
 | CUDA C++ Programming Guide｜📕[PDF](https://docs.nvidia.com/cuda/pdf/CUDA_C_Programming_Guide.pdf) | AI 工程 | NVIDIA 官方教程，理解 GPU & CUDA 架构必读，官方长期更新 |
-| 论文  | AI 算法 | 多数算法只能看论文了解：https://arxiv.org/  大多均可在此查阅下载。 |
+| 论文  | AI 算法 | 很多算法只能看论文了解，大多均可在此查阅下载：https://arxiv.org/  |
 
 <br>
 
@@ -43,7 +43,7 @@
 <h1 align="center">Q&A</h1>
 
 ## 数学好难，需要学吗？
-- 只想**基础了解**：可在豆瓣检索“图解深度学习***”等入门读物，或在 B 站搜索 AI 科普视频。
+- 只想**基础了解**：可在豆瓣检索“图解深度学习***”等入门书，例如有些日本、美国人写的书评分很高，或在 B 站搜索 AI 科普视频。
 - 面向**AI 工程岗位**：先看 AI 书籍，遇到不懂的数学概念再查相关数学资料。
 - 面向**AI 算法 / 大模型算法 / 推荐算法**：建议系统学习各类数学、长期坚持，效率远高于零碎搜索。数学基础打好后，强化学习等更易理解。
 - 上述数学资料多为国外教材，体系化、脉络清晰、推导详尽，通常比常见本科教材更友好，相信很多人看了之后会真的喜欢上这些数学，而不纯粹是为了AI去阅读。
