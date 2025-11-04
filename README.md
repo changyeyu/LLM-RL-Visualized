@@ -29,7 +29,7 @@
 
 🎉 **原创 100+ 架构图，系统讲解大模型、强化学习**，涵盖：LLM / VLM 等大模型原理、训练算法（RL、RLHF、GRPO、DPO、SFT 与 CoT 蒸馏等）、效果优化与 RAG 等。  
 
-🎉 关于架构图<strong>更详细</strong>的解读可参考：<a href="https://book.douban.com/subject/37331056/">《大模型算法：强化学习、微调与对齐》</a>
+🎉 关于架构图<strong>更详细</strong>的解读可参考：<a href="https://book.douban.com/subject/37331056/">《大模型算法：强化学习、微调与对齐》</a> (豆瓣高分，多次京东AI图书Top 5 ！)
 
 🎉 本仓库**长期勘误、追加**，欢迎点击仓库顶部的 **Star ⭐** 关注，感谢鼓励✨
 
@@ -44,6 +44,7 @@
 - [大模型算法总体架构（以LLM、VLM为主）](#header-1)  
 - [强化学习算法图谱 (rl‑algo‑map).pdf——全网最大！](#header-1.5)
 - [LLM结构总图——全网最大！](#header-2)  
+- [策略梯度(Policy Gradient)-强化学习(PPO&GRPO等)之根基.pdf](#header-2.1)  
 
 ### 第2部分：大模型基础
 - [LLM（Large Language Model）结构](#header-3)  
@@ -205,6 +206,15 @@
 - 本人历时几十个小时、呕心沥血之作，点击本仓库右上角 ↗ 的 **Star ⭐** ，就是对我最大的鼓励啦！
 - LLM主要有Decoder-Only（仅解码器）或MoE（Mixture of Experts, 专家混合模型）两种形式，两者在整体架构上较为相似，主要区别为MoE在FFN（前馈网络）部分引入了多个专家网络。
 [![【LLM基础】LLM结构全视图](images_chinese/source_svg/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E3%80%91LLM%E7%BB%93%E6%9E%84%E5%85%A8%E8%A7%86%E5%9B%BE.svg)](https://raw.githubusercontent.com/changyeyu/LLM-RL-Visualized/master/images_chinese/source_svg/%E3%80%90LLM%E5%9F%BA%E7%A1%80%E3%80%91LLM%E7%BB%93%E6%9E%84%E5%85%A8%E8%A7%86%E5%9B%BE.svg)
+
+
+### <a name="header-2.1"></a> 策略梯度(Policy Gradient)-强化学习(PPO&GRPO等)之根基.pdf
+- 手撕推导 RL 核心理论之一 ，图灵奖得主 Sutton 提出。
+- 大模型训练算法之根基（被ChatGPT、DeepSeek 等广泛使用的 PPO 和 GRPO 算法都是基于策略梯度）。
+- 很重要 但常常被混淆的一部分内容，我重新推导公式、画原理图解释了一下（窄版排版） :
+<a href="https://github.com/changyeyu/LLM-RL-Visualized/blob/master/%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%28Policy%20Gradient%29-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%28PPO%26GRPO%E7%AD%89%29%E4%B9%8B%E6%A0%B9%E5%9F%BA.pdf
+"> 策略梯度(Policy Gradient)-强化学习(PPO&GRPO等)之根基.pdf </a>
+
 
 ### <a name="header-3"></a>【LLM基础】LLM（Large Language Model）结构
 - LLM主要有Decoder-Only（仅解码器）或MoE（Mixture of Experts, 专家混合模型）**两种形式**，两者在整体架构上较为**相似**，主要区别为MoE在FFN（前馈网络）部分引入了多个专家网络。
