@@ -2,12 +2,13 @@
 <a id="llm"></a>
 <h1 align="center">Open-Source LLMs（开源）</h1>
 <p align="center">
-  <img alt="Updated" src="https://img.shields.io/badge/Updated-2025.10-blue">
+  <img alt="Updated" src="https://img.shields.io/badge/Updated-2025.11-blue">
   <img alt="Scope" src="https://img.shields.io/badge/Scope-LLM-forestgreen">
 </p>
 
 | Name (模型名)        | Organization (机构)     | Date    | Paper                                                                                                       | Code                                                                                                    | Config                                                                                                          |
 | ------------------- | -------------------- | ------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **VibeThinker-1.5B**  |Sina Weibo(新浪微博) | 2025.11 | 📕[PDF](https://arxiv.org/pdf/2511.06221)                                                                    | 📁[Code](https://github.com/WeiboAI/VibeThinker)                                                     | ⚙️[Config & Models](https://huggingface.co/WeiboAI/VibeThinker-1.5B/blob/main/config.json)                               |
 | **MiniMax M2**         |  MiniMax     | 2025.10 | 🌍[Blog](https://www.minimax.io/news/minimax-m2)                                                                   | 📁[Code](https://github.com/vllm-project/vllm/blob/main/vllm/model_executor/models/minimax_m2.py)        | ⚙️[Config & Models](https://huggingface.co/MiniMaxAI/MiniMax-M2/blob/main/config.json)                               |
 | **Ling-1T**         |  Ant Group(蚂蚁)     | 2025.10 | 📕[PDF](https://arxiv.org/pdf/2507.17702)                                                                   | 📁[Code](https://huggingface.co/inclusionAI/Ling-1T/blob/main/modeling_bailing_moe_v2.py)        | ⚙️[Config & Models](https://huggingface.co/inclusionAI/Ling-1T/blob/main/config.json)                               |
 | **GLM-4.6**         | ZhipuAI(智谱AI)     | 2025.10 | 🌍[Blog](https://z.ai/blog/glm-4.6)                                                                   | 📁[Code](https://github.com/huggingface/transformers/tree/main/src/transformers/models/glm4_moe)        | ⚙️[Config & Models](https://huggingface.co/zai-org/GLM-4.6/blob/main/config.json)                               |
