@@ -2,12 +2,13 @@
 <a id="llm"></a>
 <h1 align="center">Open-Source LLMs（开源）</h1>
 <p align="center">
-  <img alt="Updated" src="https://img.shields.io/badge/Updated-2025.11-blue">
+  <img alt="Updated" src="https://img.shields.io/badge/Updated-2025.12-blue">
   <img alt="Scope" src="https://img.shields.io/badge/Scope-LLM-forestgreen">
 </p>
 
 | Name (模型名)        | Organization (机构)     | Date    | Paper                                                                                                       | Code                                                                                                    | Config                                                                                                          |
 | ------------------- | -------------------- | ------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **DeepSeek-V3.2-Speciale**  | DeepSeek | 2025.12 | 📕[PDF](https://huggingface.co/deepseek-ai/DeepSeek-V3.2/blob/main/assets/paper.pdf)                             | 📁[Code](https://huggingface.co/deepseek-ai/DeepSeek-V3.2-Speciale/tree/main/inference)                   | ⚙️[Config & Models](https://huggingface.co/deepseek-ai/DeepSeek-V3.2-Speciale/blob/main/config.json)                               |
 | **DeepSeek-Math-V2**  | DeepSeek | 2025.11 | 📕[PDF](https://github.com/deepseek-ai/DeepSeek-Math-V2/blob/main/DeepSeekMath_V2.pdf)                             | 📁[Code](https://huggingface.co/deepseek-ai/DeepSeek-Math-V2/tree/main/inference)                   | ⚙️[Config & Models](https://huggingface.co/deepseek-ai/DeepSeek-Math-V2/blob/main/config.json)                               |
 | **VibeThinker-1.5B**  |Sina Weibo(新浪微博) | 2025.11 | 📕[PDF](https://arxiv.org/pdf/2511.06221)                                                                    | 📁[Code](https://github.com/WeiboAI/VibeThinker)                                                     | ⚙️[Config & Models](https://huggingface.co/WeiboAI/VibeThinker-1.5B/blob/main/config.json)                               |
 | **MiniMax M2**         |  MiniMax     | 2025.10 | 🌍[Blog](https://www.minimax.io/news/minimax-m2)                                                                   | 📁[Code](https://github.com/vllm-project/vllm/blob/main/vllm/model_executor/models/minimax_m2.py)        | ⚙️[Config & Models](https://huggingface.co/MiniMaxAI/MiniMax-M2/blob/main/config.json)                               |
