@@ -79,13 +79,15 @@
 <a id="vlm"></a>
 <h1 align="center">Open-Source VLMs（开源）</h1>
 <p align="center">
-  <img alt="Updated" src="https://img.shields.io/badge/Updated-2025.10-blue">
+  <img alt="Updated" src="https://img.shields.io/badge/Updated-2025.12-blue">
   <img alt="Scope" src="https://img.shields.io/badge/Scope-VLM-forestgreen">
 </p>
 
 
 | Name（模型名）        | Organization (机构)     | Date    | Paper                                                    | Code                                                                                                                        | Config                                                                                                |
 | -------------------- | -------------------- | ------- | -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| **GLM-4.6V-Flash**     | ZhipuAI(智谱AI)        | 2025.12 | 🌍[Blog](https://z.ai/blog/glm-4.6v)                | 📁[Code](https://github.com/huggingface/transformers/blob/main/src/transformers/models/glm4v/modeling_glm4v.py)                           | ⚙️[Config & Models](https://huggingface.co/zai-org/GLM-4.6V-Flash/blob/main/config.json)                    |
+| **Z-Image-Turbo**     | Alibaba(阿里巴巴)     | 2025.11 | 📕[PDF](https://arxiv.org/pdf/2511.22699)                | 📁[Code](https://huggingface.co/Tongyi-MAI/Z-Image-Turbo/tree/main)                                                | ⚙️[Config & Models](https://huggingface.co/Tongyi-MAI/Z-Image-Turbo/blob/main/transformer/config.json)                    |
 | **DeepSeek-OCR**     | DeepSeek             | 2025.10 | 📕[PDF](https://github.com/deepseek-ai/DeepSeek-OCR/blob/main/DeepSeek_OCR_paper.pdf)     | 📁[Code](https://huggingface.co/deepseek-ai/DeepSeek-OCR/tree/main/modeling_deepseek_v2.py) | ⚙️[Config & Models](https://huggingface.co/deepseek-ai/DeepSeek-OCR/blob/main/config.json)            |
 | **HunyuanImage-3.0**    | Tencent(腾讯)          | 2025.09 | 📕[PDF](https://www.arxiv.org/pdf/2509.23951) | 📁[Code](https://huggingface.co/tencent/HunyuanImage-3.0/blob/main/hunyuan.py)            | ⚙️[Config & Models](https://huggingface.co/tencent/HunyuanImage-3.0/blob/main/config.json)                 |
 | **Qwen3-VL**       | Alibaba(阿里巴巴)        | 2025.09 | 🌍[Blog](https://qwen.ai/blog?id=99f0335c4ad9ff6153e517418d48535ab6d8afef&from=research.latest-advancements-list)       | 📁[Code](https://github.com/huggingface/transformers/tree/main/src/transformers/models/qwen3_vl_moe)                          | ⚙️[Config & Models](https://huggingface.co/Qwen/Qwen3-VL-30B-A3B-Instruct/blob/main/config.json)        |
