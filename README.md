@@ -35,6 +35,12 @@
 
 🎉 单击图片可看高清大图，或浏览仓库目录中的 `.svg` 格式矢量图（活图，可无限缩放、可选择文字）
 
+<div align="center">
+
+<a href="https://hellogithub.com/repository/changyeyu/LLM-RL-Visualized" target="_blank"><img src="https://abroad.hellogithub.com/v1/widgets/recommend.svg?rid=89dd575abef147188252e25675feb7aa&claim_uid=59EQqBGDeXApw2L&theme=small" alt="Featured｜HelloGitHub" /></a>
+
+</div>
+
 ---
 
 
