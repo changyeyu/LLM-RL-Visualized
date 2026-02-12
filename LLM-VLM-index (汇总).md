@@ -2,12 +2,13 @@
 <a id="llm"></a>
 <h1 align="center">Open-Source LLMs（开源）</h1>
 <p align="center">
-  <img alt="Updated" src="https://img.shields.io/badge/Updated-2025.12-blue">
+  <img alt="Updated" src="https://img.shields.io/badge/Updated-2026.02-blue">
   <img alt="Scope" src="https://img.shields.io/badge/Scope-LLM-forestgreen">
 </p>
 
 | Name (模型名)        | Organization (机构)     | Date    | Paper                                                                                                       | Code                                                                                                    | Config                                                                                                          |
 | ------------------- | -------------------- | ------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **GLM-5**            | ZhipuAI(智谱AI)       | 2026.2 | 🌍[Blog](https://z.ai/blog/glm-5)                                                                      | 📁[Code](https://github.com/huggingface/transformers/tree/main/src/transformers/models)                     | ⚙️[Config & Models](https://huggingface.co/zai-org/GLM-5/blob/main/config.json)                       |
 | **MiMo-V2-Flash**     | Xiaomi(小米)        | 2025.12 | 📕[PDF](https://github.com/XiaomiMiMo/MiMo-V2-Flash/blob/main/paper.pdf)                                | 📁[Code](https://huggingface.co/XiaomiMiMo/MiMo-V2-Flash/blob/main/modeling_mimo_v2_flash.py)                     | ⚙️[Config & Models](https://huggingface.co/XiaomiMiMo/MiMo-V2-Flash/blob/main/config.json)                       |
 | **Circuit Sparsity**  | OpenAI              | 2025.12 | 📕[PDF](https://arxiv.org/pdf/2511.13653)                                                            | 📁[Code](https://github.com/openai/circuit_sparsity)                                                      | ⚙️[Config & Models](https://huggingface.co/openai/circuit-sparsity/blob/main/config.json)                               |
 | **Mistral-Large-3-675B-Instruct**  | Mistral AI | 2025.12 | 🌍[Blog](https://mistral.ai/news/mistral-3)                                                       | 📁[Code](https://github.com/huggingface/transformers/tree/main/src/transformers/models/mistral3)                   | ⚙️[Config & Models](https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512/blob/main/params.json)                               |
