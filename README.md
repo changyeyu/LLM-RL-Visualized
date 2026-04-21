@@ -7,18 +7,17 @@
     <img
       alt="English Version"
       src="https://img.shields.io/badge/English-Version-blue?style=for-the-badge"
-      width="160"
-      height="32"
+      height="45"
     />
-  </a> 
+  </a>
+  &nbsp;&nbsp;
   <a href="./README.md">
     <img
       alt="Chinese 中文版本"
       src="https://img.shields.io/badge/Chinese-中文版本-red?style=for-the-badge"
-      width="160"
-      height="32"
+      height="45"
     />
-  </a>    
+  </a>
 </p>
 
 ---
