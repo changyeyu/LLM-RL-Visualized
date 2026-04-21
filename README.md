@@ -11,7 +11,6 @@
       height="32"
     />
   </a> 
-  &nbsp;
 
   <a href="./README.md">
     <img
