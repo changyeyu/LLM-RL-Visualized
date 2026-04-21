@@ -80,17 +80,20 @@
 
 
 
-<a id="vlm"></a>
-<h1 align="center">Open-Source VLMs（开源）</h1>
+<a id="multimodal"></a>
+<h1 align="center">Open-Source VLMs, MLLMs, World Models & Embodied AI Models（开源）</h1>
 <p align="center">
-  <img alt="Updated" src="https://img.shields.io/badge/Updated-2025.12-blue">
-  <img alt="Scope" src="https://img.shields.io/badge/Scope-VLM-forestgreen">
+  <img alt="Updated" src="https://img.shields.io/badge/Updated-2026.04-blue">
+  <img alt="Scope" src="https://img.shields.io/badge/Scope-VLM%20%7C%20MLLM%20%7C%20World%20Models%20%7C%20Embodied%20AI-forestgreen">
 </p>
 
 
 | Name（模型名）        | Organization (机构)     | Date    | Paper                                                    | Code                                                                                                                        | Config                                                                                                |
 | -------------------- | -------------------- | ------- | -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| **GLM-4.6V-Flash**     | ZhipuAI(智谱AI)        | 2025.12 | 🌍[Blog](https://z.ai/blog/glm-4.6v)                | 📁[Code](https://github.com/huggingface/transformers/blob/main/src/transformers/models/glm4v/modeling_glm4v.py)                           | ⚙️[Config & Models](https://huggingface.co/zai-org/GLM-4.6V-Flash/blob/main/config.json)                    |
+| **HY-World 2.0**     | Tencent(腾讯)       | 2026.04 | 📕[PDF](https://arxiv.org/pdf/2604.14268)               | 📁[Code](https://github.com/Tencent-Hunyuan/HY-World-2.0)                           | ⚙️[Config & Models](https://huggingface.co/tencent/HY-World-2.0/blob/main/HY-WorldMirror-2.0/config.json)                    |
+| **HY-Embodied-0.5**   | Tencent(腾讯)       | 2026.04 | 📕[PDF](https://arxiv.org/pdf/2604.07430)               | 📁[Code](https://github.com/Tencent-Hunyuan/HY-Embodied)                           | ⚙️[Config & Models](https://huggingface.co/tencent/HY-Embodied-0.5/blob/main/config.jsonn)                    |
+| **GLM-4.6V-Flash**     | ZhipuAI(智谱AI)        | 2025.12 | 🌍[Blog](https://z.ai/blog/glm-4.6v)                | 📁[Code](https://github.com/huggingface/transformers/blob/main/src/transformers/models/glm4v/modeling_glm4v.py)                     | ⚙️[Config & Models](https://huggingface.co/zai-org/GLM-4.6V-Flash/blob/main/config.json)                    |
+| **MiMo-Embodied-7B**     | Xiaomi(小米)     | 2025.11 | 📕[PDF](https://arxiv.org/pdf/2511.16518)           | 📁[Code](https://github.com/XiaomiMiMo/MiMo-Embodied)                     | ⚙️[Config & Models](https://huggingface.co/XiaomiMiMo/MiMo-Embodied-7B/blob/main/config.json)                       |
 | **Z-Image-Turbo**     | Alibaba(阿里巴巴)     | 2025.11 | 📕[PDF](https://arxiv.org/pdf/2511.22699)                | 📁[Code](https://huggingface.co/Tongyi-MAI/Z-Image-Turbo/tree/main)                                                | ⚙️[Config & Models](https://huggingface.co/Tongyi-MAI/Z-Image-Turbo/blob/main/transformer/config.json)                    |
 | **DeepSeek-OCR**     | DeepSeek             | 2025.10 | 📕[PDF](https://github.com/deepseek-ai/DeepSeek-OCR/blob/main/DeepSeek_OCR_paper.pdf)     | 📁[Code](https://huggingface.co/deepseek-ai/DeepSeek-OCR/tree/main/modeling_deepseek_v2.py) | ⚙️[Config & Models](https://huggingface.co/deepseek-ai/DeepSeek-OCR/blob/main/config.json)            |
 | **HunyuanImage-3.0**    | Tencent(腾讯)          | 2025.09 | 📕[PDF](https://www.arxiv.org/pdf/2509.23951) | 📁[Code](https://huggingface.co/tencent/HunyuanImage-3.0/blob/main/hunyuan.py)            | ⚙️[Config & Models](https://huggingface.co/tencent/HunyuanImage-3.0/blob/main/config.json)                 |
