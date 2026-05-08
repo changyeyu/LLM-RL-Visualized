@@ -2,12 +2,13 @@
 <a id="llm"></a>
 <h1 align="center">Open-Source LLMs（开源）</h1>
 <p align="center">
-  <img alt="Updated" src="https://img.shields.io/badge/Updated-2026.04-blue">
+  <img alt="Updated" src="https://img.shields.io/badge/Updated-2026.05-blue">
   <img alt="Scope" src="https://img.shields.io/badge/Scope-LLM-forestgreen">
 </p>
 
 | Name (模型名)        | Organization (机构)     | Date    | Paper                                                                                                       | Code                                                                                                    | Config                                                                                                          |
 | ------------------- | -------------------- | ------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **MiMo-V2.5**     | Xiaomi(小米)           | 2026.04   | 🌍[Blog](https://mimo.xiaomi.com/mimo-v2-5-pro)                              | 📁[Code](https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro/blob/main/modeling_mimo_v2.py)                     | ⚙️[Config & Models](https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro/blob/main/config.json)                       |
 | **DeepSeek-V4**     | DeepSeek             | 2026.04 | 📕[PDF](https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/DeepSeek_V4.pdf)                | 📁[Code](https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/tree/main/inference)     | ⚙️[Config & Models](https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/config.json)                       |
 | **Gemma 4**         | Google DeepMind      | 2026.04 | 🌍[Blog](https://ai.google.dev/gemma/docs/core/model_card_4)                                              | 📁[Code](https://github.com/huggingface/transformers/tree/main/src/transformers/models/gemma4)          | ⚙️[Config & Models](https://huggingface.co/google/gemma-4-31B-it/blob/main/config.json)                         |
 | **Qwen3.5**      | Alibaba(阿里巴巴)        | 2026.02  | 🌍[Blog](https://qwen.ai/blog?id=qwen3.5)                                                               | 📁[Code](https://github.com/huggingface/transformers/tree/main/src/transformers/models/qwen3_5_moe) | ⚙️[Config & Models](https://huggingface.co/Qwen/Qwen3.5-397B-A17B/blob/main/config.json)    |
