@@ -28,7 +28,7 @@
 | 《信息论基础》｜[豆瓣](https://book.douban.com/subject/2305237/) | AI 算法 | 豆瓣 9.0 分；重点理解“熵” |
 | 宋浩老师 · 各类数学课程｜📺[B 站](https://space.bilibili.com/66607740) | AI 算法 | 各类数学课程、覆盖面广 |
 | 《深度学习推荐系统 2.0》· 王喆｜[豆瓣](https://book.douban.com/subject/37286473/) | 推荐算法 | 第一/二版口碑俱佳，搜广推入门力荐 |
-| 《大模型算法：强化学习、微调与对齐》｜[豆瓣](https://book.douban.com/subject/37331056/) | 大模型算法 | 豆瓣 9.4 分；算法工程师出品，50% LLM + 50% RL |
+| 《大模型算法：强化学习、微调与对齐》｜[豆瓣](https://book.douban.com/subject/37331056/) | 大模型算法 | 豆瓣 9 分；大厂算法工程师出品，50% LLM + 50% RL ；2025 年度“优秀作者”（电子工业出版社）  |
 | 国内外各家 LLM / VLM 汇总｜[LLM-VLM-index（汇总）.md](https://github.com/changyeyu/LLM-RL-Visualized/blob/master/LLM-VLM-index%20(%E6%B1%87%E6%80%BB).md) | 大模型算法 | Paper / 代码 / 配置集中整理 |
 | 《视觉 SLAM 十四讲（第 2 版）》｜[豆瓣](https://book.douban.com/subject/34782244/)｜📕[Repo/PDF](https://github.com/gaoxiang12/slambook2) | SLAM 算法 | 豆瓣 9.3 分，配套开源 |
 | CUDA C++ Programming Guide｜📕[PDF](https://docs.nvidia.com/cuda/pdf/CUDA_C_Programming_Guide.pdf) | AI 工程 | NVIDIA 官方教程，理解 GPU & CUDA 架构必读，官方长期更新 |
