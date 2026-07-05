@@ -2,12 +2,13 @@
 <a id="llm"></a>
 <h1 align="center">Open-Source LLMs（开源）</h1>
 <p align="center">
-  <img alt="Updated" src="https://img.shields.io/badge/Updated-2026.06-blue">
+  <img alt="Updated" src="https://img.shields.io/badge/Updated-2026.07-blue">
   <img alt="Scope" src="https://img.shields.io/badge/Scope-LLM-forestgreen">
 </p>
 
 | Name (模型名)        | Organization (机构)     | Date    | Paper                                                                                                       | Code                                                                                                    | Config                                                                                                          |
 | ------------------- | -------------------- | ------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **LongCat-2.0**   | Meituan(美团)          | 2026.06 | 🌍[Blog](https://longcat.chat/blog/longcat-2.0/)                                                                   | 📁[Code](https://github.com/sgl-project/sglang)                       |                                     ⚙️[Config & Models](https://huggingface.co/meituan-longcat/LongCat-2.0/blob/main/config.json)            |
 | **VibeThinker-3B**  |Sina Weibo(新浪微博) | 2026.06 | 📕[PDF](https://arxiv.org/pdf/2606.16140)                                                                    | 📁[Code](https://github.com/WeiboAI/VibeThinker)                                                     | ⚙️[Config & Models](https://huggingface.co/WeiboAI/VibeThinker-3B/blob/main/config.json)                               |
 | **MiniMax M3**         |  MiniMax     | 2026.06 |  📕[PDF](https://arxiv.org/pdf/2606.13392)                                                                 | 📁[Code](https://github.com/huggingface/transformers/tree/main/src/transformers/models/minimax_m3_vl)        | ⚙️[Config & Models](https://huggingface.co/MiniMaxAI/MiniMax-M3/blob/main/config.json)                               |
 | **Hy3-preview**    | Tencent(腾讯)          | 2026.04 | 🌍[Blog](https://hy.tencent.com/hy3-preview)                                                   | 📁[Code](https://github.com/Tencent-Hunyuan/Hy3-preview)                                        | ⚙️[Config & Models](https://huggingface.co/tencent/Hy3-preview/blob/main/config.json)                 |
@@ -89,7 +90,7 @@
 <a id="multimodal"></a>
 <h1 align="center">Open-Source VLMs, MLLMs, World Models & Embodied AI Models（开源）</h1>
 <p align="center">
-  <img alt="Updated" src="https://img.shields.io/badge/Updated-2026.05-blue">
+  <img alt="Updated" src="https://img.shields.io/badge/Updated-2026.07-blue">
   <img alt="Scope" src="https://img.shields.io/badge/Scope-VLM%20%7C%20MLLM%20%7C%20World%20Models%20%7C%20Embodied%20AI-forestgreen">
 </p>
 
