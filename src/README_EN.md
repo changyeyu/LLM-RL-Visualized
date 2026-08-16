@@ -1008,7 +1008,7 @@ Beijing: Publishing House of Electronics Industry, 2025. https://github.com/chan
 
 ## ⭐ Star History ( [changyeyu/LLM-RL-Visualized](https://github.com/changyeyu/LLM-RL-Visualized) )
 
-[![Star History Chart](https://api.star-history.com/svg?repos=changyeyu/LLM-RL-Visualized&type=Date)](https://star-history.com/#changyeyu/LLM-RL-Visualized&Date)
+[![Star History Chart](https://star-history.dera.page/svg?repos=changyeyu/LLM-RL-Visualized&type=Date)](https://star-history.dera.page/#changyeyu/LLM-RL-Visualized&Date)
 
 
 
